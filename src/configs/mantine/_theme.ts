@@ -43,9 +43,19 @@ export const theme = {
       },
     },
   },
-  globalStyles: () => ({
+  globalStyles: (theme) => ({
     '.title': {
       fontFamily: 'var(--ubuntu-font)!important',
+    },
+    '.dots-illustration': {
+      width: '347px',
+      color: theme.colors.primary[5],
+      position: 'absolute',
+      top: 0,
+      left: 0,
+    },
+    '.relative': {
+      position: 'relative',
     },
   }),
 } satisfies MantineThemeOverride

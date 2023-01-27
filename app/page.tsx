@@ -1,27 +1,35 @@
 'use client'
 import {
   Box,
+  Center,
   Container,
-  Group,
   List,
+  SimpleGrid,
   Stack,
   Text,
-  ThemeIcon,
   Title,
+  useMantineTheme,
 } from '@mantine/core'
-import { IconCircleCheck, IconCircleDashed } from '@tabler/icons-react'
+import trustedJPG from '@sipilot/assets/jpg/trusted-image.jpg'
+import DotsIllustration from '@sipilot/assets/svg/dots.svg'
+import { IconCircleCheck } from '@tabler/icons-react'
+import Image from 'next/image'
 import Hero from './hero'
 
 export default function Home() {
-  // const theme = useMantineTheme()
-  // console.log(theme)
+  const theme = useMantineTheme()
 
   return (
     <div>
       <Hero />
       <Container>
-        <Group py="xl">
-          <Stack>
+        <SimpleGrid
+          cols={2}
+          py={60}
+          spacing="xl"
+          breakpoints={[{ maxWidth: theme.breakpoints.md, cols: 1 }]}
+        >
+          <Stack py="xl">
             <Title>
               Mengapa kami{' '}
               <Text
@@ -48,9 +56,9 @@ export default function Home() {
               size="sm"
               center
               icon={
-                <ThemeIcon color="teal" size={24} radius="xl">
-                  <IconCircleCheck size={16} />
-                </ThemeIcon>
+                <Center>
+                  <IconCircleCheck size={24} color={theme.colors.primary[5]} />
+                </Center>
               }
             >
               <List.Item>Clone or download repository from GitHub</List.Item>
@@ -61,19 +69,24 @@ export default function Home() {
               <List.Item>
                 Run tests to make sure your changes do not break the build
               </List.Item>
-              <List.Item
-                icon={
-                  <ThemeIcon color="blue" size={24} radius="xl">
-                    <IconCircleDashed size={16} />
-                  </ThemeIcon>
-                }
-              >
-                Submit a pull request once you are done
-              </List.Item>
+              <List.Item>Submit a pull request once you are done</List.Item>
             </List>
           </Stack>
-          <Box></Box>
-        </Group>
+          <Box py="xl" pl="xl" pos="relative">
+            <DotsIllustration className="dots-illustration" />
+
+            <Image
+              src={trustedJPG}
+              alt="trusted"
+              className="relative"
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                height: 'auto',
+              }}
+            />
+          </Box>
+        </SimpleGrid>
       </Container>
     </div>
   )
