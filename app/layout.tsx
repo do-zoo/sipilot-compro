@@ -1,4 +1,24 @@
-import './globals.css'
+import RootStyleRegistry from './emotion'
+import Navbar from './navbar'
+import { Ubuntu, Roboto, Open_Sans } from '@next/font/google'
+
+const ubuntu = Ubuntu({
+  weight: '700',
+  variable: '--ubuntu-font',
+  subsets: ['latin'],
+})
+
+const roboto = Roboto({
+  weight: '400',
+  variable: '--roboto-font',
+  subsets: ['latin'],
+})
+
+const openSans = Open_Sans({
+  weight: '600',
+  variable: '--open-sans-font',
+  subsets: ['latin'],
+})
 
 export default function RootLayout({
   children,
@@ -6,13 +26,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html lang="en-US">
       <head />
-      <body>{children}</body>
+      <body
+        className={`${openSans.variable} ${roboto.variable} ${ubuntu.variable}`}
+      >
+        <RootStyleRegistry>
+          <Navbar />
+          {children}
+        </RootStyleRegistry>
+      </body>
     </html>
   )
 }
