@@ -44,11 +44,21 @@ export const theme = {
     },
   },
   globalStyles: (theme) => ({
+    body: {
+      backgroundColor: `${theme.black}!important`,
+    },
     '.title': {
       fontFamily: 'var(--ubuntu-font)!important',
     },
+    '.full-img': {
+      minWidth: '100%',
+      maxWidth: '100%',
+      maxHeight: '100%',
+      height: 'auto',
+    },
+
     '.dots-illustration': {
-      width: '347px',
+      width: '60%',
       color: theme.colors.primary[5],
       position: 'absolute',
       top: 0,
@@ -56,6 +66,9 @@ export const theme = {
     },
     '.relative': {
       position: 'relative',
+    },
+    '.text-primary': {
+      color: theme.colors.primary[5],
     },
   }),
 } satisfies MantineThemeOverride

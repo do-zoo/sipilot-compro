@@ -1,1 +1,1 @@
-export const asu = 'kamu'
+export { AdvantageSection } from './Advantage.section'

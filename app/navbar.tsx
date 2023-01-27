@@ -7,9 +7,11 @@ import {
   Group,
   Header,
 } from '@mantine/core'
+import { useIntersection } from '@mantine/hooks'
 import textLogo from '@sipilot/assets/png/logo-text-white.png'
 import { Sidebar } from '@sipilot/components/Sidebar'
 import Image from 'next/image'
+import { useRef } from 'react'
 
 const useStyles = createStyles((theme) => ({
   hiddenMobile: {
@@ -21,14 +23,21 @@ const useStyles = createStyles((theme) => ({
 
 function Navbar() {
   const { classes } = useStyles()
+  const headerContainer = useRef<HTMLDivElement | null>(null)
+  const { ref, entry } = useIntersection({
+    root: headerContainer.current,
+    threshold: 1,
+    rootMargin: '60px',
+  })
   return (
-    <Box>
+    <Box ref={ref}>
       <Header
         height={80}
         style={{
           position: 'fixed',
           top: 0,
-          background: 'transparent',
+          background: !entry?.isIntersecting ? '#1A1B1E' : 'transparent',
+          transition: 'background ease-in 100ms',
         }}
         withBorder={false}
       >
@@ -37,8 +46,7 @@ function Navbar() {
             <Image src={textLogo} alt="Logo" />
             <Button
               variant="outline"
-              size="xl"
-              h={69}
+              size="lg"
               className={classes.hiddenMobile}
             >
               Contact us

@@ -1,35 +1,30 @@
 'use client'
 import {
-  Box,
+  Button,
   Center,
   Container,
+  Group,
   List,
-  SimpleGrid,
   Stack,
   Text,
   Title,
   useMantineTheme,
 } from '@mantine/core'
 import trustedJPG from '@sipilot/assets/jpg/trusted-image.jpg'
-import DotsIllustration from '@sipilot/assets/svg/dots.svg'
+import { AdvantageSection } from '@sipilot/components/Sections'
 import { IconCircleCheck } from '@tabler/icons-react'
-import Image from 'next/image'
 import Hero from './hero'
+import RocketIcon from '@sipilot/assets/svg/rocket.svg'
+import Analytic from '@sipilot/assets/svg/analytic.svg'
 
 export default function Home() {
   const theme = useMantineTheme()
-
   return (
     <div>
       <Hero />
       <Container>
-        <SimpleGrid
-          cols={2}
-          py={60}
-          spacing="xl"
-          breakpoints={[{ maxWidth: theme.breakpoints.md, cols: 1 }]}
-        >
-          <Stack py="xl">
+        <AdvantageSection img={trustedJPG}>
+          <Stack py="xl" spacing="xl">
             <Title>
               Mengapa kami{' '}
               <Text
@@ -72,21 +67,62 @@ export default function Home() {
               <List.Item>Submit a pull request once you are done</List.Item>
             </List>
           </Stack>
-          <Box py="xl" pl="xl" pos="relative">
-            <DotsIllustration className="dots-illustration" />
-
-            <Image
-              src={trustedJPG}
-              alt="trusted"
-              className="relative"
-              style={{
-                maxWidth: '100%',
-                maxHeight: '100%',
-                height: 'auto',
-              }}
-            />
-          </Box>
-        </SimpleGrid>
+        </AdvantageSection>
+        <AdvantageSection img={trustedJPG} reverse>
+          <Stack py="xl" spacing="xl">
+            <Title>
+              Menemukan{' '}
+              <Text
+                span
+                color="black"
+                bg="primary"
+                px={2}
+                className="title"
+                style={{
+                  borderRadius: 4,
+                }}
+              >
+                solusi
+              </Text>{' '}
+              untuk acara kalian
+            </Title>
+            <Text>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Cupiditate totam iusto obcaecati? Labore voluptatum sunt,
+              aspernatur debitis id alias inventore hic omnis at eum veniam
+              consequatur iste assumenda. Delectus, iure.
+            </Text>
+            <Group noWrap grow>
+              <Group>
+                <RocketIcon
+                  className="text-primary"
+                  style={{
+                    width: 40,
+                  }}
+                />
+                <Text>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Possimus, laudantium.
+                </Text>
+              </Group>
+              <Group>
+                <Analytic
+                  className="text-primary"
+                  style={{
+                    width: 40,
+                  }}
+                />
+                <Text>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Possimus, laudantium.
+                </Text>
+              </Group>
+            </Group>
+            <Group position="right">
+              <Button>CONTACT US</Button>
+            </Group>
+          </Stack>
+        </AdvantageSection>
       </Container>
     </div>
   )
