@@ -1,6 +1,6 @@
+import { Open_Sans, Ubuntu } from '@next/font/google'
 import RootStyleRegistry from './emotion'
 import Navbar from './navbar'
-import { Ubuntu, Roboto, Open_Sans } from '@next/font/google'
 
 const ubuntu = Ubuntu({
   weight: '700',
@@ -8,14 +8,8 @@ const ubuntu = Ubuntu({
   subsets: ['latin'],
 })
 
-const roboto = Roboto({
-  weight: '400',
-  variable: '--roboto-font',
-  subsets: ['latin'],
-})
-
 const openSans = Open_Sans({
-  weight: ['600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--open-sans-font',
   subsets: ['latin'],
 })
@@ -30,9 +24,7 @@ export default function RootLayout({
       <head>
         <title>Sipilot</title>
       </head>
-      <body
-        className={`${openSans.variable} ${roboto.variable} ${ubuntu.variable}`}
-      >
+      <body className={`${openSans.variable} ${ubuntu.variable}`}>
         <RootStyleRegistry>
           <Navbar />
           <main>{children}</main>

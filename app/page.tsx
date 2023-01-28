@@ -16,10 +16,12 @@ import RocketIcon from '@sipilot/assets/svg/rocket.svg'
 import {
   AdvantageSection,
   ClientReceive,
+  Clients,
   EventCountdown,
   NewEvents,
   Packages,
   ProjectReport,
+  Testimony,
 } from '@sipilot/components/Sections'
 import { IconCircleCheck } from '@tabler/icons-react'
 import Hero from './hero'
@@ -136,6 +138,8 @@ export default function Home() {
       <ClientReceive />
       <NewEvents />
       <Packages />
+      <Testimony />
+      <Clients />
     </div>
   )
 }
