@@ -62,7 +62,12 @@ export function FooterSection() {
           </Grid.Col>
           <Grid.Col span={3}>
             <Stack pt={24}>
-              <TextInput placeholder="E-mail" type="email" />
+              <TextInput
+                placeholder="E-mail"
+                type="email"
+                size="lg"
+                radius="xl"
+              />
               <Box>
                 <Button size="md" px={32}>
                   SUBSCRIBE
