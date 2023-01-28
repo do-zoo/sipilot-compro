@@ -1,7 +1,8 @@
+'use client'
 import { Footer } from '@mantine/core'
 import React from 'react'
 
-function FooterSection() {
+export function FooterSection() {
   return <Footer height="100%">FooterSection</Footer>
 }
 

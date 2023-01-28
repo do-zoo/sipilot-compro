@@ -1,4 +1,5 @@
 import { Open_Sans, Ubuntu } from '@next/font/google'
+import FooterSection from '@sipilot/components/Footer'
 import RootStyleRegistry from './emotion'
 import Navbar from './navbar'
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         <RootStyleRegistry>
           <Navbar />
           <main>{children}</main>
+          <FooterSection />
         </RootStyleRegistry>
       </body>
     </html>
