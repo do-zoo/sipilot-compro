@@ -53,7 +53,7 @@ export function EventCountdown() {
             {nextEvent.map((v, i) => (
               <Grid.Col key={i} span={3}>
                 <Center>
-                  <Card py={4} px={8} radius="lg">
+                  <Card py={4} px={8} radius="lg" bg="black">
                     <Stack align="center" spacing={0}>
                       <Title size={48} color="primary">
                         {v.value}

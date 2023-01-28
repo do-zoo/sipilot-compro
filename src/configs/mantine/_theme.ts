@@ -2,7 +2,7 @@ import { MantineThemeOverride } from '@mantine/core'
 import { colors } from './_colors'
 
 export const theme = {
-  colorScheme: 'dark',
+  colorScheme: 'light',
   colors,
   black: '#252525',
   white: '#E5E5E5',
@@ -46,6 +46,7 @@ export const theme = {
   globalStyles: (theme) => ({
     body: {
       backgroundColor: `${theme.black}!important`,
+      color: `${theme.white}!important`,
     },
     '.title': {
       fontFamily: 'var(--ubuntu-font)!important',

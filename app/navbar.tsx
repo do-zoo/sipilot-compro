@@ -8,10 +8,10 @@ import {
   Header,
 } from '@mantine/core'
 import { useIntersection } from '@mantine/hooks'
-import textLogo from '@sipilot/assets/png/logo-text-white.png'
 import { Sidebar } from '@sipilot/components/Sidebar'
 import Image from 'next/image'
 import { useRef } from 'react'
+import textLogo from '@sipilot/assets/png/logo-text-white.png'
 
 const useStyles = createStyles((theme) => ({
   hiddenMobile: {

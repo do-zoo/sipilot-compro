@@ -57,7 +57,6 @@ export default function Home() {
             </Text>
             <List
               spacing="xs"
-              size="sm"
               center
               icon={
                 <Center>
@@ -65,15 +64,29 @@ export default function Home() {
                 </Center>
               }
             >
-              <List.Item>Clone or download repository from GitHub</List.Item>
-              <List.Item>Install dependencies with yarn</List.Item>
               <List.Item>
-                To start development server run npm start command
+                <Text color="white">
+                  Clone or download repository from GitHub
+                </Text>
               </List.Item>
-              <List.Item>
-                Run tests to make sure your changes do not break the build
+              <List.Item color="white">
+                <Text color="white">Install dependencies with yarn</Text>
               </List.Item>
-              <List.Item>Submit a pull request once you are done</List.Item>
+              <List.Item color="white">
+                <Text color="white">
+                  To start development server run npm start command
+                </Text>
+              </List.Item>
+              <List.Item color="white">
+                <Text color="white">
+                  Run tests to make sure your changes do not break the build
+                </Text>
+              </List.Item>
+              <List.Item color="white">
+                <Text color="white">
+                  Submit a pull request once you are done
+                </Text>
+              </List.Item>
             </List>
           </Stack>
         </AdvantageSection>
