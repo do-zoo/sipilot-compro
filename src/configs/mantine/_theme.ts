@@ -36,7 +36,7 @@ export const theme = {
       styles: (theme, params) => {
         return {
           root: {
-            borderWidth: '3px',
+            // borderWidth: '2px',
             color: params.variant === 'filled' ? theme.black : undefined,
           },
         }
@@ -71,5 +71,6 @@ export const theme = {
       color: theme.colors.primary[5],
     },
     '.font-ubuntu': { fontFamily: 'var(--ubuntu-font)!important' },
+    '.font-open-sans': { fontFamily: 'var(--open-sans-font)!important' },
   }),
 } satisfies MantineThemeOverride

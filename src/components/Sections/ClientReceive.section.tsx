@@ -42,7 +42,7 @@ export function ClientReceive() {
                 borderRadius: 4,
               }}
             >
-              Over
+              Offers
             </Text>
           </Title>
           <Container size="sm">
@@ -54,7 +54,7 @@ export function ClientReceive() {
             </Text>
           </Container>
         </Stack>
-        <Container size="md">
+        <Container>
           <Grid gutter="lg">
             {clientReceive.map((v, i) => (
               <Grid.Col key={i} span={4}>

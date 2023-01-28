@@ -15,7 +15,7 @@ const roboto = Roboto({
 })
 
 const openSans = Open_Sans({
-  weight: '600',
+  weight: ['600', '700', '800'],
   variable: '--open-sans-font',
   subsets: ['latin'],
 })

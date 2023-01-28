@@ -18,6 +18,7 @@ import {
   ClientReceive,
   EventCountdown,
   NewEvents,
+  Packages,
   ProjectReport,
 } from '@sipilot/components/Sections'
 import { IconCircleCheck } from '@tabler/icons-react'
@@ -134,6 +135,7 @@ export default function Home() {
       <ProjectReport />
       <ClientReceive />
       <NewEvents />
+      <Packages />
     </div>
   )
 }

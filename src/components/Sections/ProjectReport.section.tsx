@@ -54,25 +54,23 @@ export function ProjectReport() {
             neque deleniti cupiditate incidunt aperiam. Dolor.
           </Text>
         </Container>
-        <Container size="md">
-          <Grid>
-            {projectReport.map((v, i) => (
-              <Grid.Col key={i} span={4}>
-                <Center>
-                  <Group noWrap>
-                    <Text size={60} weight="bold" className="font-ubuntu">
-                      {v.label}
-                      <Text span color="primary">
-                        {v.symbol}
-                      </Text>
+        <Grid>
+          {projectReport.map((v, i) => (
+            <Grid.Col key={i} span={4}>
+              <Center>
+                <Group noWrap>
+                  <Text size={60} weight="bold" className="font-ubuntu">
+                    {v.label}
+                    <Text span color="primary">
+                      {v.symbol}
                     </Text>
-                    <Text>{v.value}</Text>
-                  </Group>
-                </Center>
-              </Grid.Col>
-            ))}
-          </Grid>
-        </Container>
+                  </Text>
+                  <Text>{v.value}</Text>
+                </Group>
+              </Center>
+            </Grid.Col>
+          ))}
+        </Grid>
       </Stack>
     </Container>
   )
