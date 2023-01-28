@@ -11,11 +11,17 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 import trustedJPG from '@sipilot/assets/jpg/trusted-image.jpg'
-import { AdvantageSection } from '@sipilot/components/Sections'
+import Analytic from '@sipilot/assets/svg/analytic.svg'
+import RocketIcon from '@sipilot/assets/svg/rocket.svg'
+import {
+  AdvantageSection,
+  ClientReceive,
+  EventCountdown,
+  NewEvents,
+  ProjectReport,
+} from '@sipilot/components/Sections'
 import { IconCircleCheck } from '@tabler/icons-react'
 import Hero from './hero'
-import RocketIcon from '@sipilot/assets/svg/rocket.svg'
-import Analytic from '@sipilot/assets/svg/analytic.svg'
 
 export default function Home() {
   const theme = useMantineTheme()
@@ -124,6 +130,10 @@ export default function Home() {
           </Stack>
         </AdvantageSection>
       </Container>
+      <EventCountdown />
+      <ProjectReport />
+      <ClientReceive />
+      <NewEvents />
     </div>
   )
 }

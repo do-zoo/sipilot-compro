@@ -1,1 +1,5 @@
 export { AdvantageSection } from './Advantage.section'
+export { EventCountdown } from './EventCountdown.section'
+export { ProjectReport } from './ProjectReport.section'
+export { ClientReceive } from './ClientReceive.section'
+export { NewEvents } from './NewEvents.section'

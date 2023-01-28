@@ -70,5 +70,6 @@ export const theme = {
     '.text-primary': {
       color: theme.colors.primary[5],
     },
+    '.font-ubuntu': { fontFamily: 'var(--ubuntu-font)!important' },
   }),
 } satisfies MantineThemeOverride

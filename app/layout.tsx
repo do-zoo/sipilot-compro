@@ -27,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-US">
-      <head />
+      <head>
+        <title>Sipilot</title>
+      </head>
       <body
         className={`${openSans.variable} ${roboto.variable} ${ubuntu.variable}`}
       >
