@@ -58,14 +58,42 @@ export function ProjectReport() {
           {projectReport.map((v, i) => (
             <Grid.Col key={i} span={4}>
               <Center>
-                <Group noWrap>
-                  <Text size={60} weight="bold" className="font-ubuntu">
+                <Group
+                  noWrap
+                  sx={(theme) => ({
+                    flexDirection: 'column',
+                    gap: 4,
+                    [theme.fn.largerThan('md')]: {
+                      gap: theme.spacing.md,
+                      flexDirection: 'row',
+                    },
+                  })}
+                >
+                  <Text
+                    weight="bold"
+                    className="font-ubuntu"
+                    sx={(theme) => ({
+                      [theme.fn.largerThan('md')]: {
+                        fontSize: 60,
+                      },
+                      fontSize: 32,
+                    })}
+                  >
                     {v.label}
                     <Text span color="primary">
                       {v.symbol}
                     </Text>
                   </Text>
-                  <Text>{v.value}</Text>
+                  <Text
+                    sx={(theme) => ({
+                      [theme.fn.largerThan('md')]: {
+                        textAlign: 'left',
+                      },
+                      textAlign: 'center',
+                    })}
+                  >
+                    {v.value}
+                  </Text>
                 </Group>
               </Center>
             </Grid.Col>

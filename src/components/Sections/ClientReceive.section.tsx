@@ -1,10 +1,18 @@
-import { Container, Grid, Stack, Text, Title } from '@mantine/core'
+import {
+  Box,
+  Container,
+  createStyles,
+  Grid,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core'
 import IconChart from '@sipilot/assets/svg/chart.svg'
 import IconDesktop from '@sipilot/assets/svg/desktop.svg'
 import IconMobileTab from '@sipilot/assets/svg/mobile-tab.svg'
 
 const style = {
-  height: 72,
+  height: '100%',
 }
 
 const clientReceive = [
@@ -25,7 +33,17 @@ const clientReceive = [
   },
 ]
 
+const useStyles = createStyles((theme) => ({
+  iconWrapper: {
+    height: 36,
+    [theme.fn.largerThan('md')]: {
+      height: 72,
+    },
+  },
+}))
+
 export function ClientReceive() {
+  const { classes } = useStyles()
   return (
     <Container py={60}>
       <Stack spacing={32}>
@@ -57,9 +75,9 @@ export function ClientReceive() {
         <Container>
           <Grid gutter="lg">
             {clientReceive.map((v, i) => (
-              <Grid.Col key={i} span={4}>
+              <Grid.Col key={i} md={4}>
                 <Stack spacing="lg" align="flex-start" p="sm">
-                  {v.icon}
+                  <Box className={classes.iconWrapper}>{v.icon}</Box>
                   <Stack>
                     <Title order={3}>{v.title}</Title>
                     <Text>{v.body}</Text>

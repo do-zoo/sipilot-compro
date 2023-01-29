@@ -27,10 +27,12 @@ export function FooterSection() {
     <Box>
       <Container py={32}>
         <Grid gutter="xl">
-          <Grid.Col span={3}>
+          <Grid.Col md={3}>
             <Stack
               sx={(theme) => ({
-                borderRight: `2px solid ${theme.colors.primary[5]}`,
+                [theme.fn.largerThan('md')]: {
+                  borderRight: `2px solid ${theme.colors.primary[5]}`,
+                },
               })}
             >
               <Image src={textLogo} alt="Logo" />
@@ -41,7 +43,7 @@ export function FooterSection() {
               </Text>
             </Stack>
           </Grid.Col>
-          <Grid.Col span={3}>
+          <Grid.Col md={3}>
             <Stack pt={24}>
               <Title color="primary" order={3}>
                 LOCATION
@@ -52,7 +54,7 @@ export function FooterSection() {
               </Text>
             </Stack>
           </Grid.Col>
-          <Grid.Col span={3}>
+          <Grid.Col md={3}>
             <Stack pt={24}>
               <Title color="primary" order={3}>
                 CONTACT
@@ -60,14 +62,17 @@ export function FooterSection() {
               <Text>sipilot.team@gmail.com</Text>
             </Stack>
           </Grid.Col>
-          <Grid.Col span={3}>
+          <Grid.Col md={3}>
             <Stack pt={24}>
-              <TextInput
-                placeholder="E-mail"
-                type="email"
-                size="lg"
-                radius="xl"
-              />
+              <Box>
+                <TextInput
+                  maw={300}
+                  placeholder="E-mail"
+                  type="email"
+                  size="lg"
+                  radius="xl"
+                />
+              </Box>
               <Box>
                 <Button size="md" px={32}>
                   SUBSCRIBE

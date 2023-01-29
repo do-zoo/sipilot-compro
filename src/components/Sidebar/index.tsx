@@ -56,6 +56,7 @@ export function Sidebar() {
         opened={drawerOpened}
         onClick={toggleDrawer}
         className={classes.hiddenDesktop}
+        color="white"
       />
       <Drawer
         opened={drawerOpened}

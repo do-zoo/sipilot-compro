@@ -18,7 +18,7 @@ export function Testimony() {
       <Container py={60}>
         <Grid gutter="lg" align="center" pt="lg">
           {Array.from(Array(2).keys()).map((v, i) => (
-            <Grid.Col key={i} span={6}>
+            <Grid.Col key={i} md={6}>
               <TestimonyCard />
             </Grid.Col>
           ))}
@@ -50,7 +50,7 @@ const TestimonyCardStyles = createStyles((theme) => ({
 function TestimonyCard() {
   const { classes } = TestimonyCardStyles()
   return (
-    <Box bg="black" className={classes.root}>
+    <Box bg="black" mt={32} className={classes.root}>
       <Container size="xs">
         <Stack align="center" py={36} px="md">
           <IconQuotes className={classes.quotesBadge}>&quot;</IconQuotes>

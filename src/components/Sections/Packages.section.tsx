@@ -42,8 +42,8 @@ export function Packages() {
           </Stack>
           <Grid gutter="xs" align="center" pt="lg">
             {Array.from(Array(3).keys()).map((v, i) => (
-              <Grid.Col key={i} span={4}>
-                <PopularPackage popular={v === 1} />
+              <Grid.Col key={i} md={4}>
+                <PackageCard popular={v === 1} />
               </Grid.Col>
             ))}
           </Grid>
@@ -62,13 +62,16 @@ const popularPackageStyles = createStyles(
   (theme, { popular }: IPopularPackage) => ({
     root: {
       position: 'relative',
-      padding: popular ? `0px ${theme.spacing.lg}px` : `0px`,
+      [theme.fn.largerThan('md')]: {
+        padding: popular ? `0px ${theme.spacing.lg}px` : undefined,
+      },
     },
     card: {
       height: '100%',
       // position: 'relative',
       border: `2px solid ${theme.colors.primary[5]}`,
-      padding: popular ? `${theme.spacing.lg}px 0px` : `0px`,
+      marginTop: 32,
+      paddingTop: popular ? `${theme.spacing.lg}px` : undefined,
     },
     popularLabel: {
       position: 'absolute',
@@ -85,7 +88,7 @@ const popularPackageStyles = createStyles(
   })
 )
 
-function PopularPackage(props: IPopularPackage) {
+function PackageCard(props: IPopularPackage) {
   const { popular } = props
   const { classes } = popularPackageStyles(props)
   return (
