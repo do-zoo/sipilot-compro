@@ -15,9 +15,6 @@ export const theme = {
   fontFamily: 'var(--open-sans-font)',
   headings: {
     fontFamily: 'var(--ubuntu-font)',
-    sizes: {
-      h1: { fontSize: 30 },
-    },
   },
   primaryColor: 'primary',
   primaryShade: 5,

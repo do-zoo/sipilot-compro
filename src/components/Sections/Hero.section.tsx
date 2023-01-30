@@ -2,7 +2,7 @@
 import { Button, Center, Text } from '@mantine/core'
 import { BackgroundImage, Box, Container, Stack, Title } from '@mantine/core'
 
-function Hero() {
+export function Hero() {
   return (
     <Box>
       <BackgroundImage src={'/assets/jpg/main-bg.jpg'} radius="sm" h={725}>

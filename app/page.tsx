@@ -18,18 +18,21 @@ import {
   ClientReceive,
   Clients,
   EventCountdown,
+  Hero,
   NewEvents,
   Packages,
   ProjectReport,
   Testimony,
 } from '@sipilot/components/Sections'
 import { IconCircleCheck } from '@tabler/icons-react'
-import Hero from './hero'
+
+import Navbar from './navbar'
 
 export default function Home() {
   const theme = useMantineTheme()
   return (
     <div>
+      <Navbar />
       <Hero />
       <Container>
         <AdvantageSection img={trustedJPG}>

@@ -1,27 +1,13 @@
 import { Box, Container, Grid, Stack, Text, Title } from '@mantine/core'
-import { PackageCard } from '../Cards/packages'
+import { PackageAltCard } from '../Cards/packages'
 
-export function Packages() {
+export function PackagesAlt() {
   return (
-    <Box>
-      <Container py={60}>
+    <Box bg={'#3c3c3c'}>
+      <Container py={60} size="lg">
         <Stack spacing={32}>
           <Stack>
-            <Title align="center">
-              Our{' '}
-              <Text
-                span
-                color="black"
-                bg="primary"
-                px={2}
-                className="title"
-                style={{
-                  borderRadius: 4,
-                }}
-              >
-                Packages
-              </Text>
-            </Title>
+            <Title align="center">Packages</Title>
             <Container size="sm">
               <Text align="center">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -30,10 +16,10 @@ export function Packages() {
               </Text>
             </Container>
           </Stack>
-          <Grid gutter="xs" align="center" pt="lg">
+          <Grid gutter="xl" align="center">
             {Array.from(Array(3).keys()).map((v, i) => (
               <Grid.Col key={i} md={4}>
-                <PackageCard popular={v === 1} />
+                <PackageAltCard popular={v === 1} />
               </Grid.Col>
             ))}
           </Grid>
@@ -43,4 +29,4 @@ export function Packages() {
   )
 }
 
-export default Packages
+export default PackagesAlt

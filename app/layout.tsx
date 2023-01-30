@@ -1,7 +1,6 @@
 import { Open_Sans, Ubuntu } from '@next/font/google'
 import FooterSection from '@sipilot/components/Footer'
 import RootStyleRegistry from './emotion'
-import Navbar from './navbar'
 
 const ubuntu = Ubuntu({
   weight: '700',
@@ -27,7 +26,6 @@ export default function RootLayout({
       </head>
       <body className={`${openSans.variable} ${ubuntu.variable}`}>
         <RootStyleRegistry>
-          <Navbar />
           <main>{children}</main>
           <FooterSection />
         </RootStyleRegistry>
