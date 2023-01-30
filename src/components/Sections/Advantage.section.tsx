@@ -1,7 +1,8 @@
 import { Box, createStyles, Group } from '@mantine/core'
 import DotsIllustration from '@sipilot/assets/svg/dots.svg'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import { ReactNode } from 'react'
+import { Section } from 'types/res'
 
 const useStyles = createStyles((theme, { reverse }: { reverse?: boolean }) => ({
   hiddenMobile: {
@@ -26,12 +27,12 @@ const useStyles = createStyles((theme, { reverse }: { reverse?: boolean }) => ({
 
 interface IProps {
   children: ReactNode
-  img: StaticImageData | string
+  data: Section
   reverse?: boolean
 }
 
 export function AdvantageSection(props: IProps) {
-  const { children, img, reverse } = props
+  const { children, data, reverse } = props
   const { classes } = useStyles({
     reverse,
   })
@@ -47,7 +48,7 @@ export function AdvantageSection(props: IProps) {
       <Box py="xl" pl="xl" pos="relative">
         <DotsIllustration className="dots-illustration" />
 
-        <Image src={img} alt="trusted" className="relative full-img" />
+        <Image src={data.image} alt="trusted" className="relative full-img" />
       </Box>
     </Group>
   )
