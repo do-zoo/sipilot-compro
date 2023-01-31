@@ -48,7 +48,7 @@ export function Sidebar() {
   //   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false)
   const { classes } = useStyles()
 
-  useEffect(() => () => closeDrawer(), [])
+  useEffect(() => () => closeDrawer(), [closeDrawer])
 
   return (
     <>
