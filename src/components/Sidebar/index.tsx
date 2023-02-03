@@ -1,14 +1,15 @@
 'use client'
 import {
+  Anchor,
   Burger,
-  Button,
   createStyles,
   Divider,
   Drawer,
-  Group,
   ScrollArea,
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
+import Link from 'next/link'
+import { useEffect } from 'react'
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -18,7 +19,7 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: theme.spacing.md,
     paddingRight: theme.spacing.md,
     textDecoration: 'none',
-    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    color: theme.white,
     fontWeight: 500,
     fontSize: theme.fontSizes.sm,
 
@@ -30,10 +31,7 @@ const useStyles = createStyles((theme) => ({
     },
 
     ...theme.fn.hover({
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
+      backgroundColor: theme.colors.dark[6],
     }),
   },
 
@@ -48,7 +46,9 @@ export function Sidebar() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false)
   //   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false)
-  const { classes, theme } = useStyles()
+  const { classes } = useStyles()
+
+  useEffect(() => () => closeDrawer(), [closeDrawer])
 
   return (
     <>
@@ -66,32 +66,31 @@ export function Sidebar() {
         title="Navigation"
         className={classes.hiddenDesktop}
         zIndex={1000000}
+        styles={(theme) => ({
+          drawer: {
+            backgroundColor: theme.black,
+            color: theme.white,
+          },
+        })}
       >
         <ScrollArea sx={{ height: 'calc(100vh - 60px)' }} mx="-md">
-          <Divider
-            my="sm"
-            color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'}
-          />
-
-          <a href="#" className={classes.link}>
+          <Divider my="sm" color={'dark.5'} />
+          <Anchor
+            href="/"
+            type="button"
+            className={classes.link}
+            component={Link}
+          >
             Home
-          </a>
-          <a href="#" className={classes.link}>
-            Learn
-          </a>
-          <a href="#" className={classes.link}>
-            Academy
-          </a>
-
-          <Divider
-            my="sm"
-            color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'}
-          />
-
-          <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
+          </Anchor>
+          <Anchor
+            href="/packages"
+            className={classes.link}
+            type="button"
+            component={Link}
+          >
+            Pricing
+          </Anchor>
         </ScrollArea>
       </Drawer>
     </>
