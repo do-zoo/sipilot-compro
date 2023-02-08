@@ -1,6 +1,7 @@
 import { Open_Sans, Ubuntu } from '@next/font/google'
 import FooterSection from '@sipilot/components/Footer'
 import RootStyleRegistry from './emotion'
+import 'primeicons/primeicons.css'
 
 const ubuntu = Ubuntu({
   weight: '700',
