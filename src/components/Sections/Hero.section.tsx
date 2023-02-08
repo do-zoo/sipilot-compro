@@ -8,31 +8,17 @@ interface IProps {
 }
 
 export function Hero(props: IProps) {
-  const { content, image } = props.data
+  const { content, image, title } = props.data
   return (
     <Box>
-      <BackgroundImage
-        src={typeof image === 'string' ? image : '/assets/jpg/main-bg.jpg'}
-        radius="sm"
-        h={725}
-      >
-        {content && (
-          <Text
-            dangerouslySetInnerHTML={{
-              __html: content,
-            }}
-          />
-        )}
+      <BackgroundImage src={image} radius="sm" h={725}>
         <Container pt={120} h="100%">
           <Stack justify="center" h="100%" spacing="xl">
             <Title color="white" align="center">
-              Penyelenggara Pertemuan, Perjalanan Intensif, DST
+              {title}
             </Title>
             <Text align="center" color="white">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora
-              iure voluptates nulla aspernatur error rerum, possimus autem,
-              reprehenderit excepturi enim odio cupiditate libero eos eligendi
-              sed amet. Incidunt, similique debitis?
+              {content.body}
             </Text>
             <Center>
               <Button>Lihat lebih lanjut</Button>

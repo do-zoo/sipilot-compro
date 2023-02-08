@@ -1,8 +1,20 @@
-import { Box, createStyles, Group } from '@mantine/core'
+import {
+  Box,
+  Center,
+  createStyles,
+  Grid,
+  Group,
+  Image,
+  List,
+  Stack,
+  Text,
+  Title,
+  useMantineTheme,
+} from '@mantine/core'
 import DotsIllustration from '@sipilot/assets/svg/dots.svg'
-import Image from 'next/image'
-import { ReactNode } from 'react'
-import { Section } from 'types/res'
+import { IconCircleCheck } from '@tabler/icons-react'
+// import Image from 'next/image'
+import { Content, Section } from 'types/res'
 
 const useStyles = createStyles((theme, { reverse }: { reverse?: boolean }) => ({
   hiddenMobile: {
@@ -26,16 +38,17 @@ const useStyles = createStyles((theme, { reverse }: { reverse?: boolean }) => ({
 }))
 
 interface IProps {
-  children: ReactNode
   data: Section
   reverse?: boolean
 }
 
 export function AdvantageSection(props: IProps) {
-  const { children, data, reverse } = props
+  const { data, reverse } = props
   const { classes } = useStyles({
     reverse,
   })
+
+  const { image, title, content } = data
   return (
     <Group
       py={60}
@@ -44,14 +57,70 @@ export function AdvantageSection(props: IProps) {
       noWrap
       className={classes.advantageWrapper}
     >
-      {children}
+      <Stack py="xl" spacing="xl">
+        <Title>{title}</Title>
+        <Text>{content.body}</Text>
+        <ContentList data={data.content} />
+      </Stack>
       <Box py="xl" pl="xl" pos="relative">
         <DotsIllustration className="dots-illustration" />
-
-        <Image src={data.image} alt="trusted" className="relative full-img" />
+        <Image src={image} alt="trusted" className="relative full-img" />
       </Box>
     </Group>
   )
+}
+
+function ContentList({ data }: { data: Content }) {
+  const { list, type } = data
+  const theme = useMantineTheme()
+
+  if (type === 'list') {
+    return (
+      <List
+        spacing="xs"
+        center
+        icon={
+          <Center>
+            <IconCircleCheck size={24} color={theme.colors.primary[5]} />
+          </Center>
+        }
+      >
+        {list?.map((val, i) => {
+          if (val?.body) {
+            return (
+              <List.Item key={i}>
+                <Text color="white">{val.body}</Text>
+              </List.Item>
+            )
+          }
+        })}
+      </List>
+    )
+  }
+  if (type === 'list-with-icon') {
+    return (
+      <Grid gutter="xl">
+        {list?.map((val, i) => {
+          if (val?.body) {
+            return (
+              <Grid.Col key={i}>
+                <Stack spacing="xs">
+                  <i
+                    className={`pi pi-${val.icon} text-primary `}
+                    style={{
+                      fontSize: 40,
+                    }}
+                  />
+                  <Text>{val.body}</Text>
+                </Stack>
+              </Grid.Col>
+            )
+          }
+        })}
+      </Grid>
+    )
+  }
+  return <></>
 }
 
 export default AdvantageSection

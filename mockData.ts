@@ -1,7 +1,6 @@
 import trustedJPG from '@sipilot/assets/jpg/trusted-image.jpg'
-import { HomeData } from 'types/res'
 
-export const mockData: HomeData = {
+export const mockData = {
   '1': {
     content: '',
     image: '/assets/jpg/main-bg.jpg',

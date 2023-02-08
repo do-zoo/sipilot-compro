@@ -1,8 +1,12 @@
-import { StaticImageData } from 'next/image'
-
+export interface Content {
+  body: string
+  type?: 'list' | 'list-with-icon'
+  list?: Record<'id' | 'body' | 'icon', string | number>[]
+}
 export interface Section {
-  content: string
-  image: string | StaticImageData
+  content: Content
+  image: string
+  title: string
 }
 
 export interface HomeData {
