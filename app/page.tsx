@@ -2,9 +2,6 @@ import { homeServices } from '@sipilot/services/pages/home.service'
 import Content from './content'
 
 async function getData() {
-  // if (process.env.NODE_ENV === 'development') {
-  //   return mockData
-  // }
   const { data } = await homeServices.getHomeData()
   return data
 }
