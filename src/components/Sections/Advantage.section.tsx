@@ -108,7 +108,7 @@ function ContentList({ data }: { data: Content }) {
         {list?.map((val, i) => {
           if (val?.body) {
             return (
-              <Grid.Col key={i}>
+              <Grid.Col key={i} md={6}>
                 <Stack spacing="xs">
                   <i
                     className={`pi pi-${val.icon} text-primary `}
