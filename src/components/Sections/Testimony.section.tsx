@@ -1,9 +1,9 @@
+import { Carousel } from '@mantine/carousel'
 import {
   Avatar,
   Box,
   Container,
   createStyles,
-  Grid,
   Group,
   Stack,
   Text,
@@ -11,18 +11,52 @@ import {
 } from '@mantine/core'
 
 import IconQuotes from '@sipilot/assets/svg/quotes.svg'
+import { Section } from 'types/res'
 
-export function Testimony() {
+interface IProps {
+  data: Section
+}
+
+export function Testimony(props: IProps) {
+  const { data } = props
+  if (!data?.content?.reviews) {
+    return null
+  }
   return (
     <Box bg="primary">
       <Container py={60}>
-        <Grid gutter="lg" align="center" pt="lg">
-          {Array.from(Array(2).keys()).map((v, i) => (
-            <Grid.Col key={i} md={6}>
-              <TestimonyCard />
-            </Grid.Col>
+        <Carousel
+          withIndicators
+          // height={200}
+          slideSize="50%"
+          slideGap="md"
+          loop
+          align="start"
+          slidesToScroll={2}
+          styles={{
+            control: {
+              '&[data-inactive]': {
+                opacity: 0,
+                cursor: 'default',
+              },
+            },
+            indicator: {
+              width: 12,
+              height: 4,
+              transition: 'width 250ms ease',
+
+              '&[data-active]': {
+                width: 40,
+              },
+            },
+          }}
+        >
+          {data?.content?.reviews.map((v, i) => (
+            <Carousel.Slide key={i} pt="lg">
+              <TestimonyCard review={v} />
+            </Carousel.Slide>
           ))}
-        </Grid>
+        </Carousel>
       </Container>
     </Box>
   )
@@ -47,7 +81,12 @@ const TestimonyCardStyles = createStyles((theme) => ({
   },
 }))
 
-function TestimonyCard() {
+interface ITestimonyCardProps {
+  review: Record<'name' | 'job' | 'message' | 'avatar', string>
+}
+
+function TestimonyCard(props: ITestimonyCardProps) {
+  const { review } = props
   const { classes } = TestimonyCardStyles()
   return (
     <Box bg="black" mt={32} className={classes.root}>
@@ -55,25 +94,18 @@ function TestimonyCard() {
         <Stack align="center" py={36} px="md">
           <IconQuotes className={classes.quotesBadge}>&quot;</IconQuotes>
           <Text fs="italic" fw="lighter">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
-            modi quis, vitae rem distinctio ut suscipit corrupti cum maxime,
-            expedita sint commodi quia nisi. Dolorem nihil qui magni error.
-            Quibusdam.
+            {review.message}
           </Text>
           <Group>
-            <Avatar
-              size={72}
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-              radius={40}
-            />
+            <Avatar size={72} src={review.avatar} radius={40} />
 
             <div style={{ flex: 1 }}>
               <Title order={3} color="primary" weight={700}>
-                Jhon Doe
+                {review.name}
               </Title>
 
               <Text color="dimmed" size="md">
-                Founder & Leader
+                {review.job}
               </Text>
             </div>
           </Group>

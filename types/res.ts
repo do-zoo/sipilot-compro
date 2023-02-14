@@ -2,6 +2,7 @@ export interface Content {
   body: string
   type?: 'list' | 'list-with-icon'
   list?: Record<'id' | 'body' | 'icon', string | number>[]
+  reviews?: Record<'name' | 'job' | 'message' | 'avatar', string>[]
 }
 export interface Section {
   content: Content

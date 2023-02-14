@@ -34,6 +34,10 @@ function Content(props: Props) {
     return data?.['3']
   }, [data])
 
+  const clientReview = useMemo(() => {
+    return data?.['5']
+  }, [data])
+
   return (
     <div>
       <Navbar />
@@ -47,7 +51,7 @@ function Content(props: Props) {
       <ClientReceive />
       <NewEvents />
       <Packages />
-      <Testimony />
+      <Testimony data={clientReview} />
       <Clients />
     </div>
   )
