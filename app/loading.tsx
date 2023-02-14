@@ -18,7 +18,6 @@ function Loading() {
           margin-left: -113px;
           background-color: #000;
           z-index: 9999999999;
-          transition: all 0.3s ease;
         }
         .square {
           position: absolute;

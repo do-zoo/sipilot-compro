@@ -79,6 +79,11 @@ function ContentList({ data }: { data: Content }) {
       <List
         spacing="xs"
         center
+        styles={() => ({
+          itemWrapper: {
+            alignItems: 'flex-start !important',
+          },
+        })}
         icon={
           <Center>
             <IconCircleCheck size={24} color={theme.colors.primary[5]} />
