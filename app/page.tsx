@@ -3,13 +3,11 @@ import { homeServices } from '@sipilot/services/pages/home.service'
 import Content from './content'
 
 async function getData() {
-  const { data } = await homeServices.getHomeData()
-  return data
+  return await homeServices.getHomeData()
 }
 
 async function getEvent() {
-  const { data } = await eventServices.getAll()
-  return data
+  return await eventServices.getAll()
 }
 
 export default async function Page() {
