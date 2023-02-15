@@ -21,3 +21,13 @@ export interface HomeData {
   '8': Section
   '9': Section
 }
+
+export interface Event {
+  id: string
+  title: string
+  slug: string
+  excerpt: string
+  publish_date: string
+  expire: string
+  imageUrl: string
+}

@@ -7,10 +7,15 @@ import {
   Text,
   Title,
 } from '@mantine/core'
-import exampleImage from '@sipilot/assets/jpg/trusted-image.jpg'
 import Image from 'next/image'
+import { Event } from 'types/res'
 
-export function NewEvents() {
+interface INewEvents {
+  events: Event[]
+}
+
+export function NewEvents(props: INewEvents) {
+  const { events } = props
   return (
     <Box bg="white">
       <Container py={60}>
@@ -42,10 +47,10 @@ export function NewEvents() {
           </Stack>
           <Container size="md" style={{ width: '100%' }}>
             <Grid gutter="lg">
-              {Array.from(Array(6).keys()).map((v, i) => (
-                <Grid.Col key={i} span={4}>
+              {events.map((v) => (
+                <Grid.Col key={v.id} span={4}>
                   <AspectRatio ratio={1}>
-                    <Image src={exampleImage} fill alt="event-image" />
+                    <Image src={v.imageUrl} fill alt="event-image" />
                   </AspectRatio>
                 </Grid.Col>
               ))}

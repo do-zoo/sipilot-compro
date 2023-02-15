@@ -12,7 +12,9 @@ const nextConfig = {
 
     return config
   },
-  images: { domains: ['images.unsplash.com'] },
+  images: {
+    domains: ['images.unsplash.com', 'be.sipilot.id', 'source.unsplash.com'],
+  },
 }
 
 module.exports = nextConfig

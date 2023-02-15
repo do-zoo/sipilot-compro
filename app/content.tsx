@@ -12,15 +12,16 @@ import {
   Testimony,
 } from '@sipilot/components/Sections'
 import { useMemo } from 'react'
-import { HomeData } from 'types/res'
+import { Event, HomeData } from 'types/res'
 import Navbar from './navbar'
 
 interface Props {
   data: HomeData
+  events: Event[]
 }
 function Content(props: Props) {
-  const { data } = props
-  // console.log(data)
+  const { data, events } = props
+  console.log(events)
 
   const heroData = useMemo(() => {
     return data?.['1']
@@ -49,7 +50,7 @@ function Content(props: Props) {
       <EventCountdown />
       <ProjectReport />
       <ClientReceive />
-      <NewEvents />
+      <NewEvents events={events} />
       <Packages />
       <Testimony data={clientReview} />
       <Clients />
