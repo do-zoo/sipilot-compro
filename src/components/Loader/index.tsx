@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-function Loading() {
+function Loader() {
   return (
     <>
       <style jsx>{`
@@ -108,4 +108,4 @@ function Loading() {
   )
 }
 
-export default Loading
+export default Loader

@@ -24,7 +24,7 @@ const iconStyle = {
 }
 export function FooterSection() {
   return (
-    <Box>
+    <Box id="footer">
       <Container py={32}>
         <Grid gutter="xl">
           <Grid.Col md={3}>

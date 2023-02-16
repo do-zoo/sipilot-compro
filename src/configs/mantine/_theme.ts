@@ -41,6 +41,9 @@ export const theme = {
     },
   },
   globalStyles: (theme) => ({
+    html: {
+      scrollBehavior: 'smooth',
+    },
     body: {
       backgroundColor: `${theme.black}!important`,
       color: `${theme.white}!important`,

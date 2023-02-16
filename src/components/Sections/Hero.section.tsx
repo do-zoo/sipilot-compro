@@ -1,6 +1,14 @@
 'use client'
-import { Button, Center, Text } from '@mantine/core'
-import { BackgroundImage, Box, Container, Stack, Title } from '@mantine/core'
+import {
+  BackgroundImage,
+  Box,
+  Button,
+  Center,
+  Container,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core'
 import { Section } from 'types/res'
 
 interface IProps {
@@ -21,7 +29,9 @@ export function Hero(props: IProps) {
               {content.body}
             </Text>
             <Center>
-              <Button>Lihat lebih lanjut</Button>
+              <Button component={'a'} href="#advantage">
+                Lihat lebih lanjut
+              </Button>
             </Center>
           </Stack>
         </Container>

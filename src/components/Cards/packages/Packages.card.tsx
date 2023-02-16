@@ -1,4 +1,4 @@
-import { Box, Button, createStyles, Stack, Text, Title } from '@mantine/core'
+import { Box, createStyles, Stack, Text, Title } from '@mantine/core'
 
 interface IPopularPackage {
   popular?: boolean
@@ -67,14 +67,14 @@ export function PackageCard(props: IPopularPackage) {
               / month
             </Text>
           </Text>
-          <Stack spacing="sm">
+          <Stack spacing="sm" mb={'md'}>
             <Text>Lorem ipsum dolor sit amet.</Text>
             <Text>Lorem ipsum dolor sit amet.</Text>
             <Text>Lorem ipsum dolor sit amet.</Text>
             <Text>Lorem ipsum dolor sit amet.</Text>
             <Text>Lorem ipsum dolor sit amet.</Text>
           </Stack>
-          <Button variant={popular ? 'filled' : 'outline'}> CHOOSE PLAN</Button>
+          {/* <Button variant={popular ? 'filled' : 'outline'}> CHOOSE PLAN</Button> */}
         </Stack>
       </Box>
     </Box>

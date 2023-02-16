@@ -91,6 +91,14 @@ export function Sidebar() {
           >
             Pricing
           </Anchor>
+          <Anchor
+            href="/blog"
+            className={classes.link}
+            type="button"
+            component={Link}
+          >
+            Blog
+          </Anchor>
         </ScrollArea>
       </Drawer>
     </>

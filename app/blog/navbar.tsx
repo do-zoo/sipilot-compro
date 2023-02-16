@@ -1,15 +1,7 @@
 'use client'
-import {
-  Anchor,
-  Container,
-  createStyles,
-  Group,
-  Header,
-  TextInput,
-} from '@mantine/core'
+import { Anchor, Container, createStyles, Group, Header } from '@mantine/core'
 import logoWithText from '@sipilot/assets/png/logo-with-text.png'
 import { Sidebar } from '@sipilot/components/Sidebar'
-import { IconSearch } from '@tabler/icons-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -51,7 +43,7 @@ const useStyles = createStyles((theme) => ({
 }))
 
 function Navbar() {
-  const { classes, theme } = useStyles()
+  const { classes } = useStyles()
   return (
     <Header
       height={80}
@@ -85,7 +77,7 @@ function Navbar() {
                 Pricing
               </Anchor>
               <Anchor
-                href="/pricing"
+                href="/blog"
                 component={Link}
                 type="button"
                 className={classes.link}
@@ -93,8 +85,8 @@ function Navbar() {
                 Blog
               </Anchor>
               <Anchor
-                href="./"
-                component={Link}
+                href="#footer"
+                component="a"
                 type="button"
                 className={classes.link}
               >
@@ -102,7 +94,7 @@ function Navbar() {
               </Anchor>
             </Group>
           </Group>
-          <TextInput
+          {/* <TextInput
             placeholder="Search"
             radius="xl"
             className={classes.hiddenMobile}
@@ -110,7 +102,7 @@ function Navbar() {
             rightSection={
               <IconSearch size={24} color={theme.colors.primary[9]} />
             }
-          />
+          /> */}
           <Sidebar />
         </Group>
       </Container>

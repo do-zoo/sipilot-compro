@@ -1,10 +1,11 @@
 import { Open_Sans, Ubuntu } from '@next/font/google'
 import FooterSection from '@sipilot/components/Footer'
-import RootStyleRegistry from './emotion'
+import Loader from '@sipilot/components/Loader'
 import 'primeicons/primeicons.css'
-import StyledJsxRegistry from './registry'
 import { Suspense } from 'react'
-import Loading from './loading'
+import RootStyleRegistry from './emotion'
+import ReactQueryWrapper from './ReactQueryWrapper'
+import StyledJsxRegistry from './registry'
 
 const ubuntu = Ubuntu({
   weight: '700',
@@ -31,8 +32,10 @@ export default function RootLayout({
       <body className={`${openSans.variable} ${ubuntu.variable}`}>
         <StyledJsxRegistry>
           <RootStyleRegistry>
-            <Suspense fallback={<Loading />}>
-              <main>{children}</main>
+            <Suspense fallback={<Loader />}>
+              <ReactQueryWrapper>
+                <main>{children}</main>
+              </ReactQueryWrapper>
               <FooterSection />
             </Suspense>
           </RootStyleRegistry>

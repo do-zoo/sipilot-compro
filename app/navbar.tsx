@@ -1,5 +1,6 @@
 'use client'
 import {
+  Anchor,
   Box,
   Button,
   Container,
@@ -12,12 +13,41 @@ import { Sidebar } from '@sipilot/components/Sidebar'
 import Image from 'next/image'
 import { useRef } from 'react'
 import textLogo from '@sipilot/assets/png/logo-text-white.png'
+import Link from 'next/link'
 
 const useStyles = createStyles((theme) => ({
   hiddenMobile: {
     [theme.fn.smallerThan('md')]: {
       display: 'none',
     },
+  },
+  group: {
+    justifyContent: 'space-between',
+    [theme.fn.largerThan('md')]: {
+      justifyContent: 'space-between',
+    },
+  },
+  link: {
+    display: 'flex',
+    alignItems: 'center',
+    height: '100%',
+    paddingLeft: theme.spacing.md,
+    paddingRight: theme.spacing.md,
+    textDecoration: 'none',
+    color: theme.white,
+    fontWeight: 500,
+    fontSize: theme.fontSizes.sm,
+
+    [theme.fn.smallerThan('sm')]: {
+      height: 42,
+      display: 'flex',
+      alignItems: 'center',
+      width: '100%',
+    },
+
+    ...theme.fn.hover({
+      backgroundColor: theme.colors.dark[6],
+    }),
   },
 }))
 
@@ -44,9 +74,47 @@ function Navbar() {
         <Container h="100%">
           <Group position="apart" align="center" h="100%">
             <Image src={textLogo} alt="Logo" />
+            <Group>
+              <Group className={classes.hiddenMobile}>
+                <Anchor
+                  href="/"
+                  component={Link}
+                  type="button"
+                  className={classes.link}
+                >
+                  Home
+                </Anchor>
+                <Anchor
+                  href="/packages"
+                  component={Link}
+                  type="button"
+                  className={classes.link}
+                >
+                  Pricing
+                </Anchor>
+                <Anchor
+                  href="/blog"
+                  component={Link}
+                  type="button"
+                  className={classes.link}
+                >
+                  Blog
+                </Anchor>
+                <Anchor
+                  href="#footer"
+                  component="a"
+                  type="button"
+                  className={classes.link}
+                >
+                  Become a member
+                </Anchor>
+              </Group>
+            </Group>
             <Button
               variant="outline"
               size="lg"
+              component="a"
+              href="#footer"
               className={classes.hiddenMobile}
             >
               Contact us

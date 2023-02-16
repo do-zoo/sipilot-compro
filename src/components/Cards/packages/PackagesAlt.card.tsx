@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Center,
   createStyles,
   List,
@@ -86,13 +85,13 @@ export function PackageAltCard(props: IPackageAltCard) {
               </Text>
             </List.Item>
           </List>
-          <Box py="md" w="100%">
+          {/* <Box py="md" w="100%">
             <Button variant={popular ? 'filled' : 'outline'} fullWidth>
               <Text span size="sm">
                 Learn More
               </Text>
             </Button>
-          </Box>
+          </Box> */}
         </Stack>
       </Box>
     </Box>

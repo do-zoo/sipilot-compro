@@ -43,7 +43,7 @@ function Content(props: Props) {
     <div>
       <Navbar />
       <Hero data={heroData} />
-      <Container>
+      <Container id="advantage">
         <AdvantageSection data={trustedData1} />
         <AdvantageSection data={trustedData2} reverse />
       </Container>

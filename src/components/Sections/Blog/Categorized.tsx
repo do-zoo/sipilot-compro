@@ -10,14 +10,22 @@ import {
   Stack,
   Text,
 } from '@mantine/core'
+import useCategorizedBlog from '@sipilot/hooks/useCategorizedBlog'
+import dayjs from 'dayjs'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
+import { Blog } from 'types/res'
 
 const TRANSITION_DURATION = 200
 export function CategorizedBlog() {
   const [embla, setEmbla] = useState<Embla | null>(null)
-
   useAnimationOffsetEffect(embla, TRANSITION_DURATION)
+  const { data: blogs } = useCategorizedBlog({
+    params: {
+      perPage: 10,
+    },
+  })
 
   return (
     <Box bg="white">
@@ -44,9 +52,9 @@ export function CategorizedBlog() {
             ))}
           </Carousel>
           <Grid gutter="xl">
-            {Array.from(Array(4).keys()).map((v) => (
-              <Grid.Col sm={6} key={v}>
-                <BlogCard />
+            {blogs?.map((v: Blog) => (
+              <Grid.Col sm={6} key={v.id}>
+                <BlogCard blog={v} />
               </Grid.Col>
             ))}
           </Grid>
@@ -58,7 +66,13 @@ export function CategorizedBlog() {
 
 export default CategorizedBlog
 
-const BlogCard = () => {
+interface IBlogCardProps {
+  blog: Blog
+}
+
+const BlogCard = (props: IBlogCardProps) => {
+  const { blog } = props
+
   return (
     <Card
       radius="xl"
@@ -67,6 +81,8 @@ const BlogCard = () => {
         cursor: 'pointer',
         boxShadow: '0px 25px 25px -13px rgba(0, 0, 0, 0.25)',
       }}
+      component={Link}
+      href={`/blog/${blog.slug}`}
     >
       <Stack>
         <Paper
@@ -79,25 +95,26 @@ const BlogCard = () => {
         >
           <AspectRatio ratio={4 / 3} mx="auto">
             <Image
-              src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
+              src={blog.thumbnail[0]}
               // height={160}
-              alt="Norway"
+              alt="thumbnail"
               fill
             />
           </AspectRatio>
         </Paper>
-        <Text color="white">
-          <Text weight="bold">Bali</Text>
-          <Text weight="bold" size="sm">
-            12 Sep 2022
+        <Stack spacing="xs">
+          <Text weight="bold" color="white">
+            {blog.title}
           </Text>
-          <Text lineClamp={2}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
-            blanditiis dolorem, accusamus, veritatis voluptatem molestias
-            necessitatibus iure quod laudantium libero tempora quisquam, quis
-            accusantium. Eaque vero minima quo optio eos.
+          <Text size="sm" color="white">
+            {dayjs(blog.published_at).format('DD MMMM YYYY')}
           </Text>
-        </Text>
+          <Text
+            lineClamp={2}
+            color="white"
+            dangerouslySetInnerHTML={{ __html: blog.body }}
+          />
+        </Stack>
       </Stack>
     </Card>
   )

@@ -31,3 +31,27 @@ export interface Event {
   expire: string
   imageUrl: string
 }
+
+export interface Blog {
+  id: string
+  title: string
+  thumbnail: string[]
+  slug: string
+  published_at: string
+  updated_at: string
+  author: Author
+  category: Category
+  tags: Category[]
+  excerpt: string
+  body: string
+}
+
+interface Category {
+  title: string
+  slug: string
+}
+
+interface Author {
+  name: string
+  slug: string
+}
