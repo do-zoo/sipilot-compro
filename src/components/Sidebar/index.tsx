@@ -80,6 +80,7 @@ export function Sidebar() {
             type="button"
             className={classes.link}
             component={Link}
+            scroll
           >
             Home
           </Anchor>
@@ -88,6 +89,7 @@ export function Sidebar() {
             className={classes.link}
             type="button"
             component={Link}
+            scroll
           >
             Pricing
           </Anchor>
@@ -96,6 +98,7 @@ export function Sidebar() {
             className={classes.link}
             type="button"
             component={Link}
+            scroll
           >
             Blog
           </Anchor>

@@ -65,6 +65,7 @@ function Navbar() {
                 component={Link}
                 type="button"
                 className={classes.link}
+                scroll
               >
                 Home
               </Anchor>
@@ -73,6 +74,7 @@ function Navbar() {
                 component={Link}
                 type="button"
                 className={classes.link}
+                scroll
               >
                 Pricing
               </Anchor>
@@ -81,6 +83,7 @@ function Navbar() {
                 component={Link}
                 type="button"
                 className={classes.link}
+                scroll
               >
                 Blog
               </Anchor>

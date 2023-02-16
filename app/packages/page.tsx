@@ -6,6 +6,7 @@ import Navbar from './navbar'
 
 export default function Packages() {
   // const theme = useMantineTheme()
+
   return (
     <Box>
       <Navbar />

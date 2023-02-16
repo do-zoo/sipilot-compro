@@ -21,7 +21,6 @@ interface Props {
 }
 function Content(props: Props) {
   const { data, events } = props
-  console.log(events)
 
   const heroData = useMemo(() => {
     return data?.['1']

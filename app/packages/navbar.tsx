@@ -1,8 +1,15 @@
 'use client'
-import { Container, createStyles, Group, Header } from '@mantine/core'
+import {
+  Container,
+  createStyles,
+  Group,
+  Header,
+  UnstyledButton,
+} from '@mantine/core'
 import logoWithText from '@sipilot/assets/png/logo-with-text.png'
 import { Sidebar } from '@sipilot/components/Sidebar'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const useStyles = createStyles((theme) => ({
   group: {
@@ -28,7 +35,9 @@ function Navbar() {
     >
       <Container h="100%">
         <Group align="center" h="100%" className={classes.group}>
-          <Image src={logoWithText} alt="Logo" height={60} />
+          <UnstyledButton component={Link} href="/" scroll>
+            <Image src={logoWithText} alt="Logo" height={60} />
+          </UnstyledButton>
           <Sidebar />
         </Group>
       </Container>
