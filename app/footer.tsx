@@ -41,10 +41,14 @@ export function FooterSection() {
     },
   })
 
-  const { onSubmit, getInputProps } = form
+  const { onSubmit, getInputProps, reset } = form
 
   const handleSubmit = onSubmit((values) => {
-    mutate(values)
+    mutate(values, {
+      onSuccess() {
+        reset()
+      },
+    })
   })
   return (
     <Box id="footer">
