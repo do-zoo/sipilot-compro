@@ -1,6 +1,8 @@
 'use client'
 import { CacheProvider } from '@emotion/react'
 import { useEmotionCache, MantineProvider } from '@mantine/core'
+import { ModalsProvider } from '@mantine/modals'
+import { ModalSubscribeSuccess } from '@sipilot/components/Modals'
 import { theme } from '@sipilot/configs/mantine'
 import { getCookie } from 'cookies-next'
 import NextApp, { AppContext } from 'next/app'
@@ -26,7 +28,17 @@ export default function RootStyleRegistry({
   return (
     <CacheProvider value={cache}>
       <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-        {children}
+        <ModalsProvider
+          modals={{
+            subscribeSuccess: ModalSubscribeSuccess,
+          }}
+          modalProps={{
+            centered: true,
+            transition: 'fade',
+          }}
+        >
+          {children}
+        </ModalsProvider>
       </MantineProvider>
     </CacheProvider>
   )

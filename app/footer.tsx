@@ -12,6 +12,7 @@ import {
   Title,
 } from '@mantine/core'
 import { useForm } from '@mantine/form'
+import { openContextModal } from '@mantine/modals'
 import textLogo from '@sipilot/assets/png/logo-text-white.png'
 import IconFacebook from '@sipilot/assets/svg/facebook.svg'
 import IconLinkedIn from '@sipilot/assets/svg/linkedin.svg'
@@ -25,7 +26,7 @@ const iconStyle = {
   color: '#2e2e2e',
 }
 export function FooterSection() {
-  const { mutate } = useSubsEmail()
+  const { mutate, isLoading } = useSubsEmail()
   const form = useForm({
     initialValues: {
       mail: '',
@@ -47,6 +48,14 @@ export function FooterSection() {
     mutate(values, {
       onSuccess() {
         reset()
+        openContextModal({
+          modal: 'subscribeSuccess',
+          withCloseButton: false,
+          innerProps: {
+            modalBody:
+              "Thank you for subscribing to our newsletter! We're excited to have you on board.",
+          },
+        })
       },
     })
   })
@@ -102,7 +111,7 @@ export function FooterSection() {
                   />
                 </Box>
                 <Box>
-                  <Button type="submit" size="md" px={32}>
+                  <Button type="submit" size="md" px={32} loading={isLoading}>
                     SUBSCRIBE
                   </Button>
                 </Box>
