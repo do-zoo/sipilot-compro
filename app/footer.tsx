@@ -11,11 +11,13 @@ import {
   TextInput,
   Title,
 } from '@mantine/core'
+import { useForm } from '@mantine/form'
 import textLogo from '@sipilot/assets/png/logo-text-white.png'
 import IconFacebook from '@sipilot/assets/svg/facebook.svg'
 import IconLinkedIn from '@sipilot/assets/svg/linkedin.svg'
 import IconTwitter from '@sipilot/assets/svg/twitter.svg'
 import IconWebsite from '@sipilot/assets/svg/website.svg'
+import { useSubsEmail } from '@sipilot/hooks/subscriptions'
 import Image from 'next/image'
 
 const iconStyle = {
@@ -23,6 +25,27 @@ const iconStyle = {
   color: '#2e2e2e',
 }
 export function FooterSection() {
+  const { mutate } = useSubsEmail()
+  const form = useForm({
+    initialValues: {
+      mail: '',
+    },
+
+    validate: {
+      mail: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+    },
+    transformValues(values) {
+      return {
+        mail: values.mail.toLocaleLowerCase(),
+      }
+    },
+  })
+
+  const { onSubmit, getInputProps } = form
+
+  const handleSubmit = onSubmit((values) => {
+    mutate(values)
+  })
   return (
     <Box id="footer">
       <Container py={32}>
@@ -63,22 +86,24 @@ export function FooterSection() {
             </Stack>
           </Grid.Col>
           <Grid.Col md={3}>
-            <Stack pt={24}>
-              <Box>
-                <TextInput
-                  maw={300}
-                  placeholder="E-mail"
-                  type="email"
-                  size="lg"
-                  radius="xl"
-                />
-              </Box>
-              <Box>
-                <Button size="md" px={32}>
-                  SUBSCRIBE
-                </Button>
-              </Box>
-            </Stack>
+            <form onSubmit={handleSubmit}>
+              <Stack pt={24}>
+                <Box>
+                  <TextInput
+                    maw={300}
+                    size="lg"
+                    radius="xl"
+                    placeholder="your@email.com"
+                    {...getInputProps('mail')}
+                  />
+                </Box>
+                <Box>
+                  <Button type="submit" size="md" px={32}>
+                    SUBSCRIBE
+                  </Button>
+                </Box>
+              </Stack>
+            </form>
           </Grid.Col>
         </Grid>
       </Container>

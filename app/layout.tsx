@@ -1,9 +1,9 @@
 import { Open_Sans, Ubuntu } from '@next/font/google'
-import FooterSection from '@sipilot/components/Footer'
 import Loader from '@sipilot/components/Loader'
 import 'primeicons/primeicons.css'
 import { Suspense } from 'react'
 import RootStyleRegistry from './emotion'
+import FooterSection from './footer'
 import ReactQueryWrapper from './ReactQueryWrapper'
 import StyledJsxRegistry from './registry'
 
@@ -35,8 +35,8 @@ export default function RootLayout({
             <Suspense fallback={<Loader />}>
               <ReactQueryWrapper>
                 <main>{children}</main>
+                <FooterSection />
               </ReactQueryWrapper>
-              <FooterSection />
             </Suspense>
           </RootStyleRegistry>
         </StyledJsxRegistry>

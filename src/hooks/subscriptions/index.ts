@@ -1,0 +1,1 @@
+export { useSubsEmail } from './useSubsEmail'
