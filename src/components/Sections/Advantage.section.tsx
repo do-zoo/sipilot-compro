@@ -86,8 +86,8 @@ export function AdvantageSection(props: IProps) {
               style={{
                 objectFit: 'cover',
                 position: 'relative',
-                top: '50%',
-                transform: 'translateY(-50%)',
+                // top: '50%',
+                // transform: 'translateY(-50%)',
                 // verticalAlign: 'middle',
               }}
             />

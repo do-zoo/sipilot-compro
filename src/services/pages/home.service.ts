@@ -1,8 +1,14 @@
-import service from '../_base-services'
-
 export const homeServices = {
   async getHomeData() {
-    const { data } = await service.get('/maincontent')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/maincontent`, {
+      cache: 'no-store',
+    })
+
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+    const data = await res.json()
     return data?.data
   },
 }
