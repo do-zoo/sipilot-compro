@@ -7,7 +7,6 @@ export const subscriptionsServices = {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/emailSubscription`,
       {
-        cache: 'no-store',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

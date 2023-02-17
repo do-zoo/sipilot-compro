@@ -1,7 +1,7 @@
 export const homeServices = {
   async getHomeData() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/maincontent`, {
-      cache: 'no-store',
+      next: { revalidate: 10 },
     })
 
     if (!res.ok) {

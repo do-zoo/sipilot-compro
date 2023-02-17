@@ -1,7 +1,7 @@
 export const eventServices = {
   async getAll() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/event`, {
-      cache: 'no-store',
+      next: { revalidate: 10 },
     })
 
     if (!res.ok) {
@@ -14,9 +14,7 @@ export const eventServices = {
   async upcoming() {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/event/upcoming`,
-      {
-        cache: 'no-store',
-      }
+      { next: { revalidate: 10 } }
     )
 
     if (!res.ok) {
