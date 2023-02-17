@@ -65,9 +65,9 @@ export const theme = {
       top: 0,
       left: 0,
     },
-    '.relative': {
-      position: 'relative',
-    },
+    // '.relative': {
+    //   position: 'relative',
+    // },
     '.text-primary': {
       color: theme.colors.primary[5],
     },

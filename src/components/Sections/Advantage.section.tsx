@@ -3,7 +3,6 @@ import {
   Center,
   createStyles,
   Grid,
-  Group,
   Image,
   List,
   Stack,
@@ -50,23 +49,52 @@ export function AdvantageSection(props: IProps) {
 
   const { image, title, content } = data
   return (
-    <Group
+    <Grid
       py={60}
-      spacing="xl"
-      align="flex-start"
-      noWrap
+      // spacing="xl"
+      // align="flex-start"
+      // grow
+      pos="relative"
+      // noWrap
       className={classes.advantageWrapper}
     >
-      <Stack py="xl" spacing="xl">
-        <Title>{title}</Title>
-        <Text>{content.body}</Text>
-        <ContentList data={data.content} />
-      </Stack>
-      <Box py="xl" pl="xl" pos="relative">
-        <DotsIllustration className="dots-illustration" />
-        <Image src={image} alt="trusted" className="relative full-img" />
-      </Box>
-    </Group>
+      <Grid.Col md={6}>
+        <Stack py="xl" spacing="xl">
+          <Title>{title}</Title>
+          <Text>{content.body}</Text>
+          <ContentList data={data.content} />
+        </Stack>
+      </Grid.Col>
+      <Grid.Col md={6}>
+        <Box
+          py="xl"
+          pl="xl"
+          pos="relative"
+          style={{
+            overflow: 'hidden',
+            height: 'content',
+          }}
+          mih={400}
+          h="100%"
+        >
+          <DotsIllustration className="dots-illustration" />
+          <Box pos="absolute">
+            <Image
+              src={image}
+              alt="trusted"
+              className="full-img"
+              style={{
+                objectFit: 'cover',
+                position: 'relative',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                // verticalAlign: 'middle',
+              }}
+            />
+          </Box>
+        </Box>
+      </Grid.Col>
+    </Grid>
   )
 }
 

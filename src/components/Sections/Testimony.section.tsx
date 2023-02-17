@@ -29,10 +29,10 @@ export function Testimony(props: IProps) {
           withIndicators
           // height={200}
           slideSize="50%"
+          breakpoints={[{ maxWidth: 481, slideSize: '100%' }]}
           slideGap="md"
           loop
           align="start"
-          slidesToScroll={2}
           styles={{
             control: {
               '&[data-inactive]': {
@@ -89,7 +89,7 @@ function TestimonyCard(props: ITestimonyCardProps) {
   const { review } = props
   const { classes } = TestimonyCardStyles()
   return (
-    <Box bg="black" mt={32} className={classes.root}>
+    <Box bg="black" mt={32} h="100%" className={classes.root}>
       <Container size="xs">
         <Stack align="center" py={36} px="md">
           <IconQuotes className={classes.quotesBadge}>&quot;</IconQuotes>
