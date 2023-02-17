@@ -4,16 +4,13 @@ export interface IEmailPayload {
 
 export const subscriptionsServices = {
   async email(payload: IEmailPayload) {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/emailSubscription`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      }
-    )
+    const res = await fetch(`${process.env.API_URL}/emailSubscription`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
 
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
