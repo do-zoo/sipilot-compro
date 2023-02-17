@@ -18,9 +18,10 @@ import Navbar from './navbar'
 interface Props {
   data: HomeData
   events: Event[]
+  upcomingEvent: Event
 }
 function Content(props: Props) {
-  const { data, events } = props
+  const { data, events, upcomingEvent } = props
 
   const heroData = useMemo(() => {
     return data?.['1']
@@ -46,7 +47,7 @@ function Content(props: Props) {
         <AdvantageSection data={trustedData1} />
         <AdvantageSection data={trustedData2} reverse />
       </Container>
-      <EventCountdown />
+      <EventCountdown event={upcomingEvent} />
       <ProjectReport />
       <ClientReceive />
       <NewEvents events={events} />

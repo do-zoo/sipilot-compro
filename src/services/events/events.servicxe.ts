@@ -5,4 +5,8 @@ export const eventServices = {
     const { data } = await service.get('event')
     return data?.data
   },
+  async upcoming() {
+    const { data } = await service.get('event/upcoming')
+    return data?.data
+  },
 }
