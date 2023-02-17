@@ -4,13 +4,9 @@ import { redirect } from 'next/navigation'
 import { Suspense } from 'react'
 import BlogSlugContent from './content'
 
-async function getData(slug: string) {
-  return await blogServices.getBySlug(slug)
-}
-
 export default async function Page({ params }: { params: { slug: string } }) {
   try {
-    const blog = await getData(params.slug)
+    const blog = await blogServices.getBySlug(params.slug)
 
     return (
       <Suspense fallback={<Loader />}>
