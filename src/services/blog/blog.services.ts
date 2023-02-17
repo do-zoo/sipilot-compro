@@ -1,7 +1,7 @@
 export const blogServices = {
   async getCarouselData() {
     const res = await fetch(
-      `${process.env.API_URL}/post?perPage=5&published_only=true`,
+      `${process.env.NEXT_PUBLIC_API_URL}/post?perPage=5&published_only=true`,
       {
         cache: 'no-store',
       }
@@ -15,9 +15,12 @@ export const blogServices = {
   },
 
   async categorized() {
-    const res = await fetch(`${process.env.API_URL}/post?published_only=true`, {
-      cache: 'no-store',
-    })
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/post?published_only=true`,
+      {
+        cache: 'no-store',
+      }
+    )
 
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
@@ -29,7 +32,7 @@ export const blogServices = {
 
   async getAll(options: { params: Record<string, string> }) {
     const res = await fetch(
-      `${process.env.API_URL}/post?` +
+      `${process.env.NEXT_PUBLIC_API_URL}/post?` +
         new URLSearchParams({
           published_only: 'true',
           ...options.params,
@@ -48,7 +51,7 @@ export const blogServices = {
   },
 
   async getBySlug(slug: string) {
-    const res = await fetch(`${process.env.API_URL}/post/${slug}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post/${slug}`, {
       cache: 'no-store',
     })
 
@@ -61,7 +64,7 @@ export const blogServices = {
   },
 
   async random() {
-    const res = await fetch(`${process.env.API_URL}/post/random`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post/random`, {
       cache: 'no-store',
     })
 

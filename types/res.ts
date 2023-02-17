@@ -26,6 +26,7 @@ export interface Event {
   id: string
   title: string
   slug: string
+  blog_url: string
   excerpt: string
   publish_date: string
   expire: string

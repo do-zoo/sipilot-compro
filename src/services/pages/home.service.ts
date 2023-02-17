@@ -1,6 +1,6 @@
 export const homeServices = {
   async getHomeData() {
-    const res = await fetch(`${process.env.API_URL}/maincontent`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/maincontent`, {
       cache: 'no-store',
     })
 
