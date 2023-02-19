@@ -51,6 +51,21 @@ export function CategorizedBlog() {
             withControls={false}
             getEmblaApi={setEmbla}
           >
+            <Carousel.Slide>
+              <Button
+                onClick={() => {
+                  setSelectedCategory('')
+                }}
+                variant="outline"
+                color="black"
+                {...(!selectedCategory && {
+                  variant: 'filled',
+                  color: 'primary',
+                })}
+              >
+                All Categories
+              </Button>
+            </Carousel.Slide>
             {Array.isArray(categories) &&
               categories.map((category, i) => (
                 <Carousel.Slide key={i}>
