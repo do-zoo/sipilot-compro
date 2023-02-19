@@ -1,6 +1,6 @@
 'use client'
 import { CacheProvider } from '@emotion/react'
-import { useEmotionCache, MantineProvider } from '@mantine/core'
+import { MantineProvider, useEmotionCache } from '@mantine/core'
 import { ModalsProvider } from '@mantine/modals'
 import { ModalSubscribeSuccess } from '@sipilot/components/Modals'
 import { theme } from '@sipilot/configs/mantine'

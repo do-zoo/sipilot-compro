@@ -9,7 +9,9 @@ import {
   Paper,
   Stack,
   Text,
+  LoadingOverlay,
 } from '@mantine/core'
+import useCategories from '@sipilot/hooks/useCategories'
 import useCategorizedBlog from '@sipilot/hooks/useCategorizedBlog'
 import dayjs from 'dayjs'
 import Image from 'next/image'
@@ -21,9 +23,15 @@ const TRANSITION_DURATION = 200
 export function CategorizedBlog() {
   const [embla, setEmbla] = useState<Embla | null>(null)
   useAnimationOffsetEffect(embla, TRANSITION_DURATION)
-  const { data: blogs } = useCategorizedBlog({
+
+  const [selectedCategory, setSelectedCategory] = useState('')
+
+  const { data: categories } = useCategories()
+
+  const { data: blogs, isFetching } = useCategorizedBlog({
     params: {
       perPage: 10,
+      'filter.category.title': selectedCategory,
     },
   })
 
@@ -43,21 +51,35 @@ export function CategorizedBlog() {
             withControls={false}
             getEmblaApi={setEmbla}
           >
-            {Array.from(Array(4).keys()).map((v) => (
-              <Carousel.Slide key={v}>
-                <Button variant="outline" color="black">
-                  Button
-                </Button>
-              </Carousel.Slide>
-            ))}
+            {Array.isArray(categories) &&
+              categories.map((category, i) => (
+                <Carousel.Slide key={i}>
+                  <Button
+                    onClick={() => {
+                      setSelectedCategory(category.slug)
+                    }}
+                    variant="outline"
+                    color="black"
+                    {...(category.slug === selectedCategory && {
+                      variant: 'filled',
+                      color: 'primary',
+                    })}
+                  >
+                    {category.title}
+                  </Button>
+                </Carousel.Slide>
+              ))}
           </Carousel>
-          <Grid gutter="xl">
-            {blogs?.map((v: Blog) => (
-              <Grid.Col sm={6} key={v.id}>
-                <BlogCard blog={v} />
-              </Grid.Col>
-            ))}
-          </Grid>
+          <Box mih={500} pos="relative">
+            <LoadingOverlay visible={isFetching} overlayBlur={10} />
+            <Grid gutter="xl">
+              {blogs?.map((v: Blog) => (
+                <Grid.Col sm={6} key={v.id}>
+                  <BlogCard blog={v} />
+                </Grid.Col>
+              ))}
+            </Grid>
+          </Box>
         </Stack>
       </Container>
     </Box>
