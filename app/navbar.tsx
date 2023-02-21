@@ -73,7 +73,9 @@ function Navbar() {
       >
         <Container h="100%">
           <Group position="apart" align="center" h="100%">
-            <Image src={textLogo} alt="Logo" />
+            <Box component={Link} href="/">
+              <Image src={textLogo} alt="Logo" />
+            </Box>
             <Group>
               <Group className={classes.hiddenMobile}>
                 <Anchor

@@ -1,5 +1,12 @@
 'use client'
-import { Anchor, Container, createStyles, Group, Header } from '@mantine/core'
+import {
+  Anchor,
+  Container,
+  createStyles,
+  Group,
+  Header,
+  Box,
+} from '@mantine/core'
 import logoWithText from '@sipilot/assets/png/logo-with-text.png'
 import { Sidebar } from '@sipilot/components/Sidebar'
 import Image from 'next/image'
@@ -58,7 +65,9 @@ function Navbar() {
       <Container h="100%">
         <Group align="center" h="100%" className={classes.group}>
           <Group>
-            <Image src={logoWithText} alt="Logo" height={60} />
+            <Box component={Link} href="/">
+              <Image src={logoWithText} alt="Logo" height={60} />
+            </Box>
             <Group className={classes.hiddenMobile}>
               <Anchor
                 href="/"
