@@ -111,7 +111,7 @@ export function EventCountdown(props: IProps) {
           <Center>
             <Button
               component={Link}
-              href={event.slug}
+              href={event.blog_url}
               target="_blank"
               rel="noopener noreferrer"
             >
