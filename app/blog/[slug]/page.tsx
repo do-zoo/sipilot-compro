@@ -6,7 +6,7 @@ import BlogSlugContent from './content'
 
 export default async function Page({ params }: { params: { slug: string } }) {
   try {
-    const blog = await blogServices.getBySlug(params.slug)
+    const blog = await blogServices.getBySlug(params?.slug)
 
     return (
       <Suspense fallback={<Loader />}>
