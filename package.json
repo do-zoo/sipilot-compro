@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS='--inspect' node server.js",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "next start",
     "lint": "next lint",
-    "prepare": "npx husky install"
+    "prepare": "yarn husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
