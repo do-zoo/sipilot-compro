@@ -31,7 +31,7 @@ export function CategorizedBlog() {
   const { data: blogs, isFetching } = useCategorizedBlog({
     params: {
       perPage: 10,
-      'filter.category.title': selectedCategory,
+      'filter.category.slug': selectedCategory,
     },
   })
 
