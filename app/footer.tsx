@@ -91,9 +91,9 @@ export function FooterSection() {
               >
                 <Image src={textLogo} alt="Logo" />
                 <Text>
-                  PT Victory Alpha Vision bergerak di bidang jasa penyelenggara
-                  pertemuan, perjalanan intensif, dan pameran, serta bidang
-                  penerbangan dalam hal edukasi formal dan non-formal.
+                  Sipilot bergerak di bidang jasa penyelenggara pertemuan,
+                  perjalanan intensif, dan pameran, serta bidang penerbangan
+                  dalam hal edukasi formal dan non-formal.
                 </Text>
               </Stack>
             </Grid.Col>

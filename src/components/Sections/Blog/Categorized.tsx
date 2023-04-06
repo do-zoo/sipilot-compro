@@ -27,6 +27,7 @@ export function CategorizedBlog() {
   const [selectedCategory, setSelectedCategory] = useState('')
 
   const { data: categories } = useCategories()
+  console.log(selectedCategory)
 
   const { data: blogs, isFetching } = useCategorizedBlog({
     params: {
