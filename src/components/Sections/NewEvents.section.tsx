@@ -18,8 +18,6 @@ interface INewEvents {
 export function NewEvents(props: INewEvents) {
   const { events } = props
 
-  console.log(events)
-
   return (
     <Box bg="white">
       <Container py={60}>
