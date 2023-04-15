@@ -62,7 +62,11 @@ export default function BlogContent(props: IProps) {
                 dangerouslySetInnerHTML={{ __html: random.body }}
               />
               <Box>
-                <Button component={Link} href={`/post/${random.slug}`}>
+                <Button
+                  component={Link}
+                  href={`/post/${random.slug}`}
+                  scroll={false}
+                >
                   Pelajari Lebih lanjut
                 </Button>
               </Box>

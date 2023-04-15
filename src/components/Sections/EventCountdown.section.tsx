@@ -56,24 +56,26 @@ const getUnixTimestamp = (epoch: number) =>
 
 export function EventCountdown(props: IProps) {
   const { event } = props
+
   const [timeLeft, setTimeLeft] = useState<Record<'name' | 'value', string>[]>(
     []
   )
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft(getTimeLeft(getUnixTimestamp(Number(event.expire))))
+      setTimeLeft(getTimeLeft(getUnixTimestamp(Number(event?.expire))))
       // setTime((time) => (time !== 0 ? time - 1 : 0))
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [event.expire])
+  }, [event?.expire])
 
-  // const data = useEventUpcoming()
-  // console.log(countDown)
+  if (!event) {
+    return null
+  }
 
   return (
-    <BackgroundImage src={event.imageUrl} radius="sm">
+    <BackgroundImage src={event?.imageUrl} radius="sm">
       <Container py={60}>
         <Stack spacing={32}>
           <Title color="black" align="center">
@@ -111,7 +113,7 @@ export function EventCountdown(props: IProps) {
           <Center>
             <Button
               component={Link}
-              href={event.blog_url}
+              href={event?.blog_url}
               target="_blank"
               rel="noopener noreferrer"
             >

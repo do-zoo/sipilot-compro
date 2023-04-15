@@ -1,5 +1,6 @@
 'use client'
 import {
+  Anchor,
   Box,
   Button,
   Container,
@@ -74,6 +75,9 @@ export function FooterSection() {
           right={10}
           bottom={10}
           onClick={() => scrollTo({ y: 0 })}
+          style={{
+            zIndex: 100,
+          }}
         >
           Scroll to top
         </Button>
@@ -91,9 +95,9 @@ export function FooterSection() {
               >
                 <Image src={textLogo} alt="Logo" />
                 <Text>
-                  Sipilot bergerak di bidang jasa penyelenggara pertemuan,
-                  perjalanan intensif, dan pameran, serta bidang penerbangan
-                  dalam hal edukasi formal dan non-formal.
+                  Sipilot is engaged in meeting, intensive travel, and
+                  exhibition organizing services, as well as aviation in formal
+                  and non-formal education.
                 </Text>
               </Stack>
             </Grid.Col>
@@ -102,10 +106,15 @@ export function FooterSection() {
                 <Title color="primary" order={3}>
                   LOCATION
                 </Title>
-                <Text>
+                <Anchor
+                  href="https://goo.gl/maps/1KHZ4LUPCNSxph3M8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="white"
+                >
                   Arcade Business Center Lantai 6 Unit 6-03, Jl. Pantai Indah
                   Kapuk 2 Kav. C1, Kota Adm. Jakarta Utara, DKI Jakarta
-                </Text>
+                </Anchor>
               </Stack>
             </Grid.Col>
             <Grid.Col md={3}>
@@ -113,7 +122,14 @@ export function FooterSection() {
                 <Title color="primary" order={3}>
                   CONTACT
                 </Title>
-                <Text>sipilot.team@gmail.com</Text>
+                <Anchor
+                  href="mailto:sipilot.team@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="white"
+                >
+                  sipilot.team@gmail.com
+                </Anchor>
               </Stack>
             </Grid.Col>
             <Grid.Col md={3}>

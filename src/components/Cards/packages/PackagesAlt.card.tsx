@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   createStyles,
   List,
@@ -9,14 +10,20 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 import IconCheckFilled from '@sipilot/assets/svg/check-filled.svg'
-
-interface IPackageAltCard {
-  popular?: boolean
+import Link from 'next/link'
+export type PackageAlt = {
+  label: string
+  body: string[]
 }
+
+interface IProps {
+  data: PackageAlt
+}
+
 const popularPackageStyles = createStyles((theme) => ({
   root: {
     position: 'relative',
-    [theme.fn.largerThan('md')]: {},
+    height: '100%',
   },
   card: {
     height: '100%',
@@ -26,8 +33,9 @@ const popularPackageStyles = createStyles((theme) => ({
     backgroundColor: theme.colors.black[5],
   },
 }))
-export function PackageAltCard(props: IPackageAltCard) {
-  const { popular } = props
+export function PackageAltCard(props: IProps) {
+  const { data } = props
+  const { body, label } = data
   const { classes } = popularPackageStyles()
   const theme = useMantineTheme()
 
@@ -40,20 +48,20 @@ export function PackageAltCard(props: IPackageAltCard) {
             align="center"
             className="font-open-sans"
             color="white"
-            fw={popular ? 800 : undefined}
+            // fw={popular ? 800 : undefined}
             pt="md"
           >
-            Startup
+            {label}
           </Title>
 
-          <Stack align="center" spacing={0}>
+          {/* <Stack align="center" spacing={0}>
             <Text size={40} color="white" fw="bold" className="font-open-sans">
               Rp 10.000
             </Text>
             <Text size="lg" span color="white" className="font-open-sans">
               per month
             </Text>
-          </Stack>
+          </Stack> */}
           <List
             spacing="xs"
             size="sm"
@@ -69,29 +77,25 @@ export function PackageAltCard(props: IPackageAltCard) {
               </Center>
             }
           >
-            <List.Item>
-              <Text color="white">
-                Clone or download repository from GitHub
-              </Text>
-            </List.Item>
-            <List.Item>
-              <Text color="white">
-                Clone or download repository from GitHub
-              </Text>
-            </List.Item>
-            <List.Item>
-              <Text color="white">
-                Clone or download repository from GitHub
-              </Text>
-            </List.Item>
+            {body.map((v, i) => (
+              <List.Item key={i}>
+                <Text color="white">{v}</Text>
+              </List.Item>
+            ))}
           </List>
-          {/* <Box py="md" w="100%">
-            <Button variant={popular ? 'filled' : 'outline'} fullWidth>
+          <Box py="md" w="100%">
+            <Button
+              fullWidth
+              component={Link}
+              href="https://wa.me/6281312233521?text=Hi%20Sipilot...%20"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Text span size="sm">
                 Learn More
               </Text>
             </Button>
-          </Box> */}
+          </Box>
         </Stack>
       </Box>
     </Box>

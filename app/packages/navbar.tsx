@@ -35,7 +35,7 @@ function Navbar() {
     >
       <Container h="100%">
         <Group align="center" h="100%" className={classes.group}>
-          <UnstyledButton component={Link} href="/" scroll>
+          <UnstyledButton component={Link} href="/">
             <Image src={logoWithText} alt="Logo" height={60} />
           </UnstyledButton>
           <Sidebar />

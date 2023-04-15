@@ -1,31 +1,32 @@
-import { Box, Container, Grid, Stack, Text, Title } from '@mantine/core'
+import { Container, Grid, Stack, Text, Title } from '@mantine/core'
+import { PACKAGES } from '@sipilot/constants/packages'
 import { PackageAltCard } from '../Cards/packages'
 
 export function PackagesAlt() {
   return (
-    <Box bg={'#3c3c3c'}>
+    <Stack bg={'#3c3c3c'} justify="center" mih="calc(100vh - 80px)">
       <Container py={60} size="lg">
         <Stack spacing={32}>
           <Stack>
             <Title align="center">Packages</Title>
             <Container size="sm">
               <Text align="center">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Assumenda perferendis delectus aspernatur! Cum, expedita
-                temporibus.
+                Don&apos;t miss the chance to level up your experience by
+                choosing from the best packages on offer, complete with stunning
+                facilities and excellent service from our team!
               </Text>
             </Container>
           </Stack>
-          <Grid gutter="xl" align="center">
-            {Array.from(Array(3).keys()).map((v, i) => (
+          <Grid gutter="xl" align="stretch">
+            {PACKAGES.map((v, i) => (
               <Grid.Col key={i} md={4}>
-                <PackageAltCard popular={v === 1} />
+                <PackageAltCard data={v} />
               </Grid.Col>
             ))}
           </Grid>
         </Stack>
       </Container>
-    </Box>
+    </Stack>
   )
 }
 

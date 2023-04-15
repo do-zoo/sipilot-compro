@@ -120,6 +120,7 @@ const BlogCard = (props: IBlogCardProps) => {
       }}
       component={Link}
       href={`/blog/${blog.slug}`}
+      scroll={false}
     >
       <Stack>
         <Paper

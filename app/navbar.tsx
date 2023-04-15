@@ -73,7 +73,7 @@ function Navbar() {
       >
         <Container h="100%">
           <Group position="apart" align="center" h="100%">
-            <Box component={Link} href="/">
+            <Box component={Link} href="/" scroll={false}>
               <Image src={textLogo} alt="Logo" />
             </Box>
             <Group>

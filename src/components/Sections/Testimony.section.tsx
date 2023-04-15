@@ -27,7 +27,6 @@ export function Testimony(props: IProps) {
       <Container py={60}>
         <Carousel
           withIndicators
-          // height={200}
           slideSize="50%"
           breakpoints={[{ maxWidth: 481, slideSize: '100%' }]}
           slideGap="md"

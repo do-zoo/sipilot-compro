@@ -1,14 +1,22 @@
-import { Box, createStyles, Stack, Text, Title } from '@mantine/core'
+import { Box, createStyles, Stack, Text, Title, Button } from '@mantine/core'
+import Link from 'next/link'
+
+export type Package = {
+  label: string
+  desc: string
+  body: string[]
+  isPopular?: boolean
+}
 
 interface IPopularPackage {
-  popular?: boolean
+  data: Package
 }
 const popularPackageStyles = createStyles(
-  (theme, { popular }: IPopularPackage) => ({
+  (theme, { data: { isPopular } }: IPopularPackage) => ({
     root: {
       position: 'relative',
       [theme.fn.largerThan('md')]: {
-        padding: popular ? `0px ${theme.spacing.lg}px` : undefined,
+        padding: isPopular ? `0px ${theme.spacing.lg}px` : undefined,
       },
     },
     card: {
@@ -16,7 +24,7 @@ const popularPackageStyles = createStyles(
       // position: 'relative',
       border: `2px solid ${theme.colors.primary[5]}`,
       marginTop: 32,
-      paddingTop: popular ? `${theme.spacing.lg}px` : undefined,
+      paddingTop: isPopular ? `${theme.spacing.lg}px` : undefined,
     },
     popularLabel: {
       position: 'absolute',
@@ -34,28 +42,37 @@ const popularPackageStyles = createStyles(
 )
 
 export function PackageCard(props: IPopularPackage) {
-  const { popular } = props
+  const { data } = props
+
+  const { label, isPopular, body, desc } = data
   const { classes } = popularPackageStyles(props)
   return (
     <Box className={classes.root}>
       <Box className={classes.card}>
         <Stack align="center" py="lg" px="md">
-          {popular && <Box className={classes.popularLabel}>MOST POPULAR</Box>}
+          {isPopular && (
+            <Box className={classes.popularLabel}>MOST POPULAR</Box>
+          )}
           <Box>
             <Title
               order={2}
               align="center"
               className="font-open-sans"
               color="primary"
-              fw={popular ? 800 : undefined}
+              fw={isPopular ? 800 : undefined}
             >
-              Startup
+              {label}
             </Title>
-            <Text align="center" className="font-open-sans">
-              For Everyone
+            <Text
+              align="center"
+              className="font-open-sans"
+              transform="capitalize"
+              fw={300}
+            >
+              {desc}
             </Text>
           </Box>
-          <Text size={44} color="primary" fw="bold" className="font-open-sans">
+          {/* <Text size={44} color="primary" fw="bold" className="font-open-sans">
             $10{' '}
             <Text
               size="md"
@@ -66,15 +83,23 @@ export function PackageCard(props: IPopularPackage) {
             >
               / month
             </Text>
-          </Text>
+          </Text> */}
           <Stack spacing="sm" mb={'md'}>
-            <Text>Lorem ipsum dolor sit amet.</Text>
-            <Text>Lorem ipsum dolor sit amet.</Text>
-            <Text>Lorem ipsum dolor sit amet.</Text>
-            <Text>Lorem ipsum dolor sit amet.</Text>
-            <Text>Lorem ipsum dolor sit amet.</Text>
+            {body.map((v, i) => (
+              <Text key={i} align="center">
+                {v}
+              </Text>
+            ))}
           </Stack>
-          {/* <Button variant={popular ? 'filled' : 'outline'}> CHOOSE PLAN</Button> */}
+          <Button
+            variant={isPopular ? 'filled' : 'outline'}
+            component={Link}
+            href="https://wa.me/6281312233521?text=Hi%20Sipilot...%20"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CHOOSE PLAN
+          </Button>
         </Stack>
       </Box>
     </Box>

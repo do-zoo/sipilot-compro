@@ -1,6 +1,5 @@
 'use client'
 import {
-  BackgroundImage,
   Box,
   Button,
   Center,
@@ -19,7 +18,29 @@ export function Hero(props: IProps) {
   const { content, image, title } = props.data
   return (
     <Box>
-      <BackgroundImage src={image} radius="sm" h={725}>
+      <Box
+        sx={{
+          height: '100vh',
+          position: 'relative',
+          '&:before': {
+            content: '""',
+            position: 'absolute',
+            left: '0',
+            right: '0',
+            zIndex: -1,
+
+            display: 'block',
+            backgroundImage: `url(${image})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            width: '100%',
+            height: '100%',
+            filter: 'brightness(50%)',
+            backgroundSize: 'cover',
+          },
+        }}
+      >
         <Container pt={120} h="100%">
           <Stack justify="center" h="100%" spacing="xl">
             <Title color="white" align="center">
@@ -35,7 +56,7 @@ export function Hero(props: IProps) {
             </Center>
           </Stack>
         </Container>
-      </BackgroundImage>
+      </Box>
     </Box>
   )
 }

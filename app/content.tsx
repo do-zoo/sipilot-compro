@@ -48,7 +48,7 @@ function Content(props: Props) {
         <AdvantageSection data={trustedData2} reverse />
       </Container>
 
-      {upcomingEvent && <EventCountdown event={upcomingEvent} />}
+      <EventCountdown event={upcomingEvent} />
 
       <ProjectReport />
       <ClientReceive />

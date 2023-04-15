@@ -65,7 +65,7 @@ function Navbar() {
       <Container h="100%">
         <Group align="center" h="100%" className={classes.group}>
           <Group>
-            <Box component={Link} href="/">
+            <Box component={Link} href="/" scroll={false}>
               <Image src={logoWithText} alt="Logo" height={60} />
             </Box>
             <Group className={classes.hiddenMobile}>

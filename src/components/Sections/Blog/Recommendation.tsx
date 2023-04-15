@@ -58,6 +58,7 @@ export function RecommendationBlog({ carousel }: { carousel: Blog[] }) {
                 component={Link}
                 href={`/blog/${v.slug}`}
                 color="white"
+                scroll={false}
               >
                 <AspectRatio ratio={1920 / 1080} mx="auto">
                   <Image
@@ -66,6 +67,7 @@ export function RecommendationBlog({ carousel }: { carousel: Blog[] }) {
                     alt="Carousel-image"
                     style={{
                       objectFit: 'cover',
+                      filter: 'brightness(50%)',
                     }}
                   />
                 </AspectRatio>
@@ -73,7 +75,7 @@ export function RecommendationBlog({ carousel }: { carousel: Blog[] }) {
                   <Text fw="bold">
                     {dayjs(v.published_at).format('DD/MM/YYYY')}
                   </Text>
-                  <Title>{v.title}</Title>
+                  <Title lineClamp={2}>{v.title}</Title>
                 </Box>
               </Anchor>
             </Carousel.Slide>

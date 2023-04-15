@@ -10,17 +10,17 @@ import {
 
 const projectReport = [
   {
-    value: 'Client yang sudah bekerja sama',
+    value: 'Clients who have worked together',
     label: 1.7,
     symbol: 'k',
   },
   {
-    value: 'Project yang sudah di lakukan',
+    value: 'Projects that have been done',
     label: 50,
     symbol: '+',
   },
   {
-    value: 'Kepuasan Client',
+    value: 'Client Satisfaction',
     label: 95,
     symbol: '%',
   },
@@ -46,14 +46,14 @@ export function ProjectReport() {
           </Text>
           , in the Right Way
         </Title>
-        <Container size="sm">
+        {/* <Container size="sm">
           <Text align="center">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda
             perferendis delectus aspernatur! Cum, expedita temporibus. Vel
             repudiandae architecto tenetur? Ducimus commodi qui enim harum,
             neque deleniti cupiditate incidunt aperiam. Dolor.
           </Text>
-        </Container>
+        </Container> */}
         <Grid>
           {projectReport.map((v, i) => (
             <Grid.Col key={i} span={4}>

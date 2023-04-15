@@ -17,6 +17,9 @@ interface INewEvents {
 
 export function NewEvents(props: INewEvents) {
   const { events } = props
+  if (events.length === 0) {
+    return null
+  }
 
   return (
     <Box bg="white">

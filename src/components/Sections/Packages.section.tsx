@@ -1,4 +1,5 @@
 import { Box, Container, Grid, Stack, Text, Title } from '@mantine/core'
+import { PACKAGES } from '@sipilot/constants/packages'
 import { PackageCard } from '../Cards/packages'
 
 export function Packages() {
@@ -24,16 +25,16 @@ export function Packages() {
             </Title>
             <Container size="sm">
               <Text align="center">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Assumenda perferendis delectus aspernatur! Cum, expedita
-                temporibus.
+                Don&apos;t miss the chance to level up your experience by
+                choosing from the best packages on offer, complete with stunning
+                facilities and excellent service from our team!
               </Text>
             </Container>
           </Stack>
           <Grid gutter="xs" align="center" pt="lg">
-            {Array.from(Array(3).keys()).map((v, i) => (
+            {PACKAGES.map((v, i) => (
               <Grid.Col key={i} md={4}>
-                <PackageCard popular={v === 1} />
+                <PackageCard data={v} />
               </Grid.Col>
             ))}
           </Grid>
