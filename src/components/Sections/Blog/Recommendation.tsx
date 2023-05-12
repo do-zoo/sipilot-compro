@@ -34,6 +34,7 @@ const useStyles = createStyles((_theme, _params, getRef) => ({
 export function RecommendationBlog({ carousel }: { carousel: Blog[] }) {
   const { classes } = useStyles()
   const autoplay = useRef(Autoplay({ delay: 5000 }))
+  if (!carousel) return null
   return (
     <Box pos="relative">
       <Container pt="lg">

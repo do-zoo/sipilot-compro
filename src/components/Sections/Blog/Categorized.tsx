@@ -87,13 +87,17 @@ export function CategorizedBlog() {
           </Carousel>
           <Box mih={500} pos="relative">
             <LoadingOverlay visible={isFetching} overlayBlur={10} />
-            <Grid gutter="xl">
-              {blogs?.map((v: Blog) => (
-                <Grid.Col sm={6} key={v.id}>
-                  <BlogCard blog={v} />
-                </Grid.Col>
-              ))}
-            </Grid>
+            {blogs?.length > 0 ? (
+              <Grid gutter="xl">
+                {blogs?.map((v: Blog) => (
+                  <Grid.Col sm={6} key={v.id}>
+                    <BlogCard blog={v} />
+                  </Grid.Col>
+                ))}
+              </Grid>
+            ) : (
+              <Text mih="100vh">Belum ada Postingan</Text>
+            )}
           </Box>
         </Stack>
       </Container>
